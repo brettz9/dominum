@@ -1,0 +1,63 @@
+{
+  "name": "dominum",
+  "version": "0.1.0",
+  "description": "Minimalist and extensible DOM",
+  "main": "src/index.js",
+  "scripts": {
+    "open": "open-cli http://localhost:8050/ && npm run start",
+    "start": "static -p 8050",
+    "eslint": "eslint --ext=js,md,html .",
+    "test:unit": "mocha --require esm test/**",
+    "test": "npm run eslint && npm run test:unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettz9/dominum.git"
+  },
+  "keywords": [
+    "dom"
+  ],
+  "author": "Brett Zamir",
+  "contributors": [],
+  "browserslist": [
+    "cover 100%"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/brettz9/dominum/issues"
+  },
+  "homepage": "https://github.com/brettz9/dominum#readme",
+  "devDependencies": {
+    "@mysticatea/eslint-plugin": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
+    "eslint": "^6.7.2",
+    "eslint-config-ash-nazg": "^14.0.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-array-func": "^3.1.3",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsdoc": "^18.4.3",
+    "eslint-plugin-markdown": "^1.0.1",
+    "eslint-plugin-no-unsanitized": "^3.0.2",
+    "eslint-plugin-no-use-extend-native": "^0.4.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-unicorn": "^14.0.1",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.2",
+    "node-static": "^0.7.11",
+    "open-cli": "^5.0.0",
+    "rollup": "^1.27.13",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {}
+}

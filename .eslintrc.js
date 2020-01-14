@@ -25,6 +25,13 @@ module.exports = {
       rules: {
         'import/unambiguous': 0
       }
+    },
+    {
+      files: 'test/**',
+      env: {mocha: true},
+      globals: {
+        expect: true
+      }
     }
   ],
   parserOptions: {

@@ -9,8 +9,8 @@
     "start": "static -p 8050",
     "rollup": "rollup -c",
     "eslint": "eslint --ext=js,md,html .",
-    "test:unit": "mocha --require esm test/**",
-    "test": "npm run eslint && npm run test:unit"
+    "mocha": "mocha --require esm --require test/bootstrap/node test/*.js",
+    "test": "npm run eslint && npm run mocha"
   },
   "repository": {
     "type": "git",
@@ -59,7 +59,8 @@
     "node-static": "^0.7.11",
     "open-cli": "^5.0.0",
     "rollup": "^1.27.13",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "w3c-xmlserializer": "^2.0.0"
   },
   "dependencies": {}
 }

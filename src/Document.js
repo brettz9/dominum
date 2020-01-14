@@ -11,12 +11,6 @@ import HTMLDocument from './HTMLDocument.js';
 import XMLDocument from './XMLDocument.js';
 import ProcessingInstruction from './ProcessingInstruction.js';
 
-// Todo: If using in our tests, will need to switch to Jamilih or what not,
-//   or extend this, as this deliberately minimal implementation won't allow,
-//   e.g., setting `id`/`href` properties as we are now.
-
-// Todo: Add tests and export on main intl-dom?
-
 class Document extends Node {
   constructor (documentType, documentElement) {
     super();

@@ -1,7 +1,10 @@
 const ChildNode = {
   remove () {
+    if (!this.parentNode) {
+      return;
+    }
     // eslint-disable-next-line unicorn/prefer-node-remove
-    return this.parentNode.removeChild(this);
+    this.parentNode.removeChild(this);
   }
 };
 

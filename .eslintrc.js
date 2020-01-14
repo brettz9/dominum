@@ -34,6 +34,10 @@ module.exports = {
     {
       files: 'test/**',
       env: {mocha: true},
+      extends: [
+        'plugin:chai-friendly/recommended',
+        'plugin:chai-expect/recommended'
+      ],
       globals: {
         expect: true
       }

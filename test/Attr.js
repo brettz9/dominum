@@ -7,6 +7,10 @@ describe('Attr', function () {
     expect(attr.nodeType).to.equal(2);
     expect(attr.parentNode).to.equal(null);
   });
+  it('should have Attr property `localName`', function () {
+    const attr = new Attr('aName');
+    expect(attr.localName).to.equal('aname');
+  });
   it('should serialize properly', function () {
     const expected = '';
     const attr = new Attr('someName');

@@ -5,7 +5,12 @@ module.exports = {
   },
   settings: {
     polyfills: [
-      'Object.assign'
+      'console',
+      'Object.assign',
+      'Object.defineProperties',
+      'Object.getOwnPropertyDescriptor',
+      'Proxy',
+      'Symbol.iterator'
     ]
   },
   extends: ['ash-nazg/sauron'],

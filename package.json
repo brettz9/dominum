@@ -4,8 +4,10 @@
   "description": "Minimalist and extensible DOM",
   "main": "src/index.js",
   "scripts": {
+    "prepublishOnly": "npm run rollup",
     "open": "open-cli http://localhost:8050/ && npm run start",
     "start": "static -p 8050",
+    "rollup": "rollup -c",
     "eslint": "eslint --ext=js,md,html .",
     "test:unit": "mocha --require esm test/**",
     "test": "npm run eslint && npm run test:unit"

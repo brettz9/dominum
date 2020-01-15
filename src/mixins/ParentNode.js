@@ -9,11 +9,13 @@ const ParentNode = {
       // eslint-disable-next-line unicorn/prefer-node-append
       this.appendChild(arg);
     });
-  },
+  }
 
+  /*
   prepend () {
     // Todo (though not as critical for building)
   }
+  */
 };
 
 export default ParentNode;

@@ -1,4 +1,5 @@
 import Node from './Node.js';
+import Attr from './Attr.js';
 import NamedNodeMap from './NamedNodeMap.js';
 
 import ParentNode from './mixins/ParentNode.js';
@@ -22,6 +23,18 @@ class Element extends Node {
     this.nodeName = name;
 
     Object.assign(this, ParentNode, ChildNode);
+  }
+
+  setAttribute (name, value) {
+    for (const att of this.attributes) {
+      if (att.name === name) {
+        att.value = value;
+        return;
+      }
+    }
+    const attr = new Attr(name, this);
+    attr.value = value;
+    this.attributes[this.attributes.length] = attr;
   }
   // Todo (high): Add `removeAttributeNode`, `setAttributeNode`,
   //   `setAttributeNodeNS`, and use `new Attr()` for new ones

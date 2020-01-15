@@ -47,7 +47,7 @@ function arrayExoticObject (target, writable) {
           next () {
             return {
               value: target[index++],
-              done: index >= target.length
+              done: index > target.length
             };
           }
         };
@@ -145,7 +145,7 @@ function arrayExoticObject (target, writable) {
         return true;
       }
       // https://tc39.es/ecma262/#sec-ordinarydefineownproperty
-      target.property = value;
+      target[property] = value;
       return true;
     }
   });

@@ -17,6 +17,13 @@ describe('Element', function () {
     const result = xmlserializer(element);
     expect(result).to.equal(expected);
   });
+  it('should serialize properly with attributes', function () {
+    const expected = '<someElement abc="def"/>';
+    const element = new Element('someElement');
+    element.setAttribute('abc', 'def');
+    const result = xmlserializer(element);
+    expect(result).to.equal(expected);
+  });
   it('should have `ChildNode` properties (`remove`)', function () {
     const element = new Element('someElement');
     expect(element.remove).to.be.a('function');

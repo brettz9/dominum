@@ -14,7 +14,7 @@ class XMLDocument extends Document {
     this.append(this.documentElement);
   }
   createElement (elem) {
-    return Element(elem, this);
+    return new Element(elem, this);
   }
 
   // eslint-disable-next-line class-methods-use-this

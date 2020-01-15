@@ -1,4 +1,5 @@
 // Todo: Search for `childNodes` and fix with `Proxy`
+// Todo: Be sure to check `ChildNode` in tests when there is a `parentNode`
 
 import DOMException from './DOMException.js';
 import NodeList from './NodeList.js';

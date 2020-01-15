@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import DocumentType from '../src/DocumentType.js';
 
 describe('DocumentType', function () {

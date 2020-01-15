@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import DocumentFragment from '../src/DocumentFragment.js';
 
 describe('DocumentFragment', function () {

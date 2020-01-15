@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import Comment from '../src/Comment.js';
 
 describe('Comment', function () {

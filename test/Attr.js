@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import Attr from '../src/Attr.js';
 
 describe('Attr', function () {

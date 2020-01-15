@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import Element from '../src/Element.js';
 
 describe('Element', function () {

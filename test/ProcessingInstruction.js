@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import ProcessingInstruction from '../src/ProcessingInstruction.js';
 
 describe('ProcessingInstruction', function () {

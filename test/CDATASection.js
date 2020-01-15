@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import CDATASection from '../src/CDATASection.js';
 
 describe('CDATASection', function () {

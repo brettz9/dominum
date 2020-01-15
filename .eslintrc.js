@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true
   },
+  parser: 'babel-eslint',
   settings: {
     polyfills: [
       'console',
@@ -39,6 +40,7 @@ module.exports = {
         'plugin:chai-expect/recommended'
       ],
       globals: {
+        xmlserializer: true,
         expect: true
       }
     }

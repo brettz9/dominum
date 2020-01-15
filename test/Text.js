@@ -1,4 +1,3 @@
-import xmlserializer from 'w3c-xmlserializer';
 import Text from '../src/Text.js';
 
 describe('Text', function () {

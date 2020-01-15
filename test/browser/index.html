@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Dominum Tests</title>
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+        <link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+    </head>
+    <body>
+        <h1>Dominum Tests</h1>
+        <div id="mocha"></div>
+
+        <!-- Test Environment -->
+        <!-- For ESM: https://github.com/mochajs/mocha/issues/3006 -->
+        <script src="../../node_modules/mocha/mocha.js"></script>
+
+        <!-- For ESM: To support in 5.0; release 4.3.0 to be done
+           first: https://github.com/chaijs/chai/pull/1266 -->
+        <script src="../../node_modules/chai/chai.js"></script>
+
+        <script type="module">
+        import xmlserializer from './xmlserializer.esm.js';
+        /* globals chai */
+        window.expect = chai.expect;
+        window.xmlserializer = xmlserializer;
+        mocha.setup('bdd');
+        </script>
+        <script type="module">
+        (async () => {
+        await [
+          '../Attr.js',
+          '../CDATASection.js',
+          '../CharacterData.js',
+          '../Comment.js',
+          '../DocumentFragment.js',
+          '../DocumentType.js',
+          '../DOMException.js',
+          '../Element.js',
+          '../HTMLElement.js',
+          '../index.js',
+          '../ProcessingInstruction.js',
+          '../Text.js'
+        ].reduce((p, path) => {
+          return p.then(() => import(path));
+        // eslint-disable-next-line compat/compat
+        }, Promise.resolve());
+        mocha.run();
+        })();
+        </script>
+    </body>
+</html>

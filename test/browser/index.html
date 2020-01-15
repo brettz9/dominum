@@ -22,6 +22,10 @@
         import xmlserializer from './xmlserializer.esm.js';
         /* globals chai */
         window.expect = chai.expect;
+
+        // Ideally we'd use the browser `XMLSerializer`, but
+        //  it requires genuine `Node` instances, prevents setting
+        //  `nodeType`, etc.
         window.xmlserializer = xmlserializer;
         mocha.setup('bdd');
         </script>

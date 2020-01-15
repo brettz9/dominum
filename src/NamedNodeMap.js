@@ -7,7 +7,28 @@
  */
 class NamedNodeMap {
   constructor () {
-    this.length = 0;
+    // eslint-disable-next-line consistent-this
+    const target = this;
+    Object.defineProperties(target, {
+      length: {
+        value: 0,
+        writable: true
+      },
+      [Symbol.iterator]: {
+        value () {
+          let index = 0;
+
+          return {
+            next () {
+              return {
+                value: target[index++],
+                done: index >= target.length
+              };
+            }
+          };
+        }
+      }
+    });
   }
 }
 

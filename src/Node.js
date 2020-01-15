@@ -9,9 +9,9 @@ class Node {
   }
 
   appendChild (arg) {
-    setWritingPermission(true);
+    const lastValue = setWritingPermission(true);
     this.childNodes[this.childNodes.length] = arg;
-    setWritingPermission(false);
+    setWritingPermission(lastValue);
     arg.parentNode = this;
   }
 

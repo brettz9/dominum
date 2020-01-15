@@ -1,10 +1,12 @@
 let allowWrite;
 /**
  * @param {boolean} isAllowed
- * @returns {void}
+ * @returns {boolean} Last value of `allowWrite`
  */
 function setWritingPermission (isAllowed) {
+  const lastValue = allowWrite;
   allowWrite = isAllowed;
+  return lastValue;
 }
 
 /**

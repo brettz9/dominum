@@ -24,6 +24,24 @@ describe('HTMLDocument', function () {
     const comment = doc.createComment();
     expect(comment.nodeType).to.equal(8);
   });
+  it('createProcessingInstruction', function () {
+    const doc = new HTMLDocument();
+    const comment = doc.createProcessingInstruction();
+    expect(comment.nodeType).to.equal(7);
+  });
+  it('createAttribute', function () {
+    const doc = new HTMLDocument();
+    const attr = doc.createAttribute('abc');
+    expect(attr.nodeType).to.equal(2);
+    expect(attr.name).to.equal('abc');
+    expect(attr.value).to.equal('');
+  });
+  it('createTextNode', function () {
+    const doc = new HTMLDocument();
+    const text = doc.createTextNode('some text');
+    expect(text.nodeType).to.equal(3);
+    expect(text.data).to.equal('some text');
+  });
   it('createCDATASection', function () {
     const doc = new HTMLDocument();
     expect(() => {

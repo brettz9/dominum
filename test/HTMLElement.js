@@ -42,6 +42,31 @@ describe('HTMLElement', function () {
       expect(ret).to.be.undefined;
     }).to.not.throw();
   });
+  it(
+    '`ChildNode` `remove` should skip removing irrelevant item from container',
+    function () {
+      const element = new HTMLElement('someElement');
+      expect(element.remove).to.be.a('function');
+      const childElement = new HTMLElement('aChildElement');
+      element.append(childElement);
+      expect(element.childNodes.length).to.equal(1);
+      expect(element.childNodes[0].localName).to.equal('achildelement');
+      expect(element.childNodes[0].nodeName).to.equal('ACHILDELEMENT');
+
+      const anotherChildElement = new HTMLElement('anotherChildElement');
+      element.append(anotherChildElement);
+      expect(element.childNodes.length).to.equal(2);
+      expect(element.childNodes[1].localName).to.equal('anotherchildelement');
+      expect(element.childNodes[1].nodeName).to.equal('ANOTHERCHILDELEMENT');
+
+      const ret = anotherChildElement.remove();
+      expect(ret).to.be.undefined;
+      expect(element.childNodes[0].localName).to.equal('achildelement');
+      expect(element.childNodes[0].nodeName).to.equal('ACHILDELEMENT');
+      expect(element.childNodes.length).to.equal(1);
+      expect(element.childNodes[1]).to.be.undefined;
+    }
+  );
   it('`ChildNode` `remove` should remove from container', function () {
     const element = new HTMLElement('someElement');
     expect(element.remove).to.be.a('function');
@@ -50,9 +75,18 @@ describe('HTMLElement', function () {
     expect(element.childNodes.length).to.equal(1);
     expect(element.childNodes[0].localName).to.equal('achildelement');
     expect(element.childNodes[0].nodeName).to.equal('ACHILDELEMENT');
+
+    const anotherChildElement = new HTMLElement('anotherChildElement');
+    element.append(anotherChildElement);
+    expect(element.childNodes.length).to.equal(2);
+    expect(element.childNodes[1].localName).to.equal('anotherchildelement');
+    expect(element.childNodes[1].nodeName).to.equal('ANOTHERCHILDELEMENT');
+
     const ret = childElement.remove();
     expect(ret).to.be.undefined;
-    expect(element.childNodes.length).to.equal(0);
-    expect(element.childNodes[0]).to.be.undefined;
+    expect(element.childNodes[0].localName).to.equal('anotherchildelement');
+    expect(element.childNodes[0].nodeName).to.equal('ANOTHERCHILDELEMENT');
+    expect(element.childNodes.length).to.equal(1);
+    expect(element.childNodes[1]).to.be.undefined;
   });
 });

@@ -26,8 +26,8 @@ describe('HTMLDocument', function () {
   });
   it('createProcessingInstruction', function () {
     const doc = new HTMLDocument();
-    const comment = doc.createProcessingInstruction();
-    expect(comment.nodeType).to.equal(7);
+    const procInst = doc.createProcessingInstruction();
+    expect(procInst.nodeType).to.equal(7);
   });
   it('createAttribute', function () {
     const doc = new HTMLDocument();
@@ -55,5 +55,12 @@ describe('HTMLDocument', function () {
     expect(element.localName).to.equal('a');
     expect(element.nodeName).to.equal('A');
     expect(element.tagName).to.equal('A');
+  });
+});
+describe('Document#implementation', function () {
+  it('createHTMLDocument', function () {
+    const doc = new HTMLDocument();
+    const htmlDoc = doc.implementation.createHTMLDocument('aTitle');
+    expect(htmlDoc.nodeType).to.equal(9);
   });
 });

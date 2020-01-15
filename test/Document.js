@@ -12,8 +12,8 @@ describe('Document', function () {
   });
   it('createProcessingInstruction', function () {
     const doc = new Document();
-    const comment = doc.createProcessingInstruction();
-    expect(comment.nodeType).to.equal(7);
+    const procInst = doc.createProcessingInstruction();
+    expect(procInst.nodeType).to.equal(7);
   });
   it('createAttribute', function () {
     const doc = new Document();
@@ -27,5 +27,13 @@ describe('Document', function () {
     const text = doc.createTextNode('some text');
     expect(text.nodeType).to.equal(3);
     expect(text.data).to.equal('some text');
+  });
+});
+
+describe('Document#implementation', function () {
+  it('createHTMLDocument', function () {
+    const doc = new Document();
+    const htmlDoc = doc.implementation.createHTMLDocument('aTitle');
+    expect(htmlDoc.nodeType).to.equal(9);
   });
 });

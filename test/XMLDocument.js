@@ -12,8 +12,8 @@ describe('XMLDocument', function () {
   });
   it('createProcessingInstruction', function () {
     const doc = new XMLDocument('', '');
-    const comment = doc.createProcessingInstruction();
-    expect(comment.nodeType).to.equal(7);
+    const procInst = doc.createProcessingInstruction();
+    expect(procInst.nodeType).to.equal(7);
   });
   it('createAttribute', function () {
     const doc = new XMLDocument('', '');
@@ -40,5 +40,12 @@ describe('XMLDocument', function () {
     expect(element.localName).to.equal('a');
     expect(element.nodeName).to.equal('a');
     expect(element.tagName).to.equal('a');
+  });
+});
+describe('Document#implementation', function () {
+  it('createHTMLDocument', function () {
+    const doc = new XMLDocument('', '');
+    const htmlDoc = doc.implementation.createHTMLDocument('aTitle');
+    expect(htmlDoc.nodeType).to.equal(9);
   });
 });

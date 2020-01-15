@@ -14,6 +14,7 @@ import ProcessingInstruction from './ProcessingInstruction.js';
 class Document extends Node {
   constructor (documentType, documentElement) {
     super();
+    this.nodeName = '#document'; // Not needed w3c-xmlserializer
     Object.assign(this, ParentNode);
     if (documentType) {
       this.append(documentType);

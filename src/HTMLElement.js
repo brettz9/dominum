@@ -5,8 +5,9 @@ class HTMLElement extends Element {
     this.localName = name.toLowerCase();
     // `tagName` and `nodeName` are not needed by w3c-xmlserializer, but
     //   unobtrusive and basic enough to add
-    this.tagName = name.toUpperCase();
-    this.nodeName = name.toUpperCase();
+    const tagName = name.toUpperCase();
+    this.tagName = tagName;
+    this.nodeName = tagName;
 
     if (name === 'template') {
       this.content = ownerDocument.createDocumentFragment();

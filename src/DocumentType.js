@@ -7,6 +7,7 @@ class DocumentType extends Node {
     this.name = name;
     this.publicId = publicId;
     this.systemId = systemId;
+    this.nodeName = name; // Not needed w3c-xmlserializer
     Object.assign(this, ChildNode);
   }
 }

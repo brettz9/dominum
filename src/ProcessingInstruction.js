@@ -5,6 +5,7 @@ class ProcessingInstruction extends Node {
     super();
     this.target = target;
     this.data = data;
+    this.nodeName = target; // Not needed w3c-xmlserializer
   }
 }
 ProcessingInstruction.prototype.nodeType = 7;

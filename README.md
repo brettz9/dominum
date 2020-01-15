@@ -7,7 +7,7 @@ Portmanteau of **DOM** and **min**im**um**
 A modular representation of the DOM for use in Node.
 
 There is already the excellent [jsdom](https://github.com/jsdom/jsdom/)
-library, but for some use cases, it is a heavier solution than needed.
+library, but for some targeted use cases, it is a heavier solution than needed.
 
 ## Installation
 

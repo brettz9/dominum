@@ -63,4 +63,9 @@ describe('Document#implementation', function () {
     const htmlDoc = doc.implementation.createHTMLDocument('aTitle');
     expect(htmlDoc.nodeType).to.equal(9);
   });
+  it('createDocument', function () {
+    const doc = new HTMLDocument('', '');
+    const htmlDoc = doc.implementation.createDocument('aNamespace', 'aName');
+    expect(htmlDoc.nodeType).to.equal(9);
+  });
 });

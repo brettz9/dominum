@@ -17,9 +17,17 @@ describe('Element', function () {
     const result = xmlserializer(element);
     expect(result).to.equal(expected);
   });
-  it('should serialize properly with attributes', function () {
+  it('should serialize properly with an attribute', function () {
     const expected = '<someElement abc="def"/>';
     const element = new Element('someElement');
+    element.setAttribute('abc', 'def');
+    const result = xmlserializer(element);
+    expect(result).to.equal(expected);
+  });
+  it('should serialize properly with multiple attributes', function () {
+    const expected = '<someElement zzz="ggg" abc="def"/>';
+    const element = new Element('someElement');
+    element.setAttribute('zzz', 'ggg');
     element.setAttribute('abc', 'def');
     const result = xmlserializer(element);
     expect(result).to.equal(expected);

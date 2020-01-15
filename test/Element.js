@@ -32,6 +32,14 @@ describe('Element', function () {
     const result = xmlserializer(element);
     expect(result).to.equal(expected);
   });
+  it('should allow overwriting an attribute value', function () {
+    const expected = '<someElement zzz="def"/>';
+    const element = new Element('someElement');
+    element.setAttribute('zzz', 'ggg');
+    element.setAttribute('zzz', 'def');
+    const result = xmlserializer(element);
+    expect(result).to.equal(expected);
+  });
   it('`ChildNode` `remove` should not throw', function () {
     const element = new Element('someElement');
     expect(element.remove).to.be.a('function');

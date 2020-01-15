@@ -1,4 +1,5 @@
 import HTMLElement from '../src/HTMLElement.js';
+import HTMLDocument from '../src/HTMLDocument.js';
 
 describe('HTMLElement', function () {
   it('should have `Node` properties', function () {
@@ -13,7 +14,14 @@ describe('HTMLElement', function () {
       expect(element.tagName).to.equal('SOMEELEMENT');
       expect(element.localName).to.equal('someelement');
 
-      const template = new HTMLElement('template');
+      let template = new HTMLElement('template');
+      expect(template.tagName).to.equal('TEMPLATE');
+      expect(template.localName).to.equal('template');
+      expect(template).to.have.property('content');
+      expect(template.content.nodeType).to.equal(11);
+
+      const doc = new HTMLDocument();
+      template = new HTMLElement('template', doc);
       expect(template.tagName).to.equal('TEMPLATE');
       expect(template.localName).to.equal('template');
       expect(template).to.have.property('content');

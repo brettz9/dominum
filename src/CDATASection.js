@@ -1,8 +1,8 @@
 import Text from './Text.js';
 
 class CDATASection extends Text {
-  constructor () {
-    super();
+  constructor (data, parentNode) {
+    super(data, parentNode);
     this.nodeName = '#cdata-section'; // Not needed w3c-xmlserializer
   }
 }

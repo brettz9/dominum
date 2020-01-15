@@ -9,6 +9,9 @@ class HTMLElement extends Element {
     this.tagName = tagName;
     this.nodeName = tagName;
 
+    // We add since already passing in, but other Nodes should have also
+    this.ownerDocument = ownerDocument;
+
     if (name === 'template') {
       this.content = ownerDocument.createDocumentFragment();
     }

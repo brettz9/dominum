@@ -1,8 +1,8 @@
 import CharacterData from './CharacterData.js';
 
 class Comment extends CharacterData {
-  constructor () {
-    super();
+  constructor (data, parentNode) {
+    super(data, parentNode);
     this.nodeName = '#comment'; // Not needed w3c-xmlserializer
   }
 }

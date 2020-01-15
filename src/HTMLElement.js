@@ -1,4 +1,5 @@
 import Element from './Element.js';
+import DocumentFragment from './DocumentFragment.js';
 
 class HTMLElement extends Element {
   constructor (name, ownerDocument) {
@@ -15,7 +16,11 @@ class HTMLElement extends Element {
     this.ownerDocument = ownerDocument;
 
     if (name === 'template') {
-      this.content = ownerDocument.createDocumentFragment();
+      // Create without an owner for now as not (yet?) specific to
+      //  `document` instance
+      this.content = !ownerDocument
+        ? new DocumentFragment()
+        : ownerDocument.createDocumentFragment();
     }
   }
 }

@@ -8,11 +8,17 @@ describe('HTMLElement', function () {
     expect(element.parentNode).to.equal(null);
   });
   it(
-    'should have `HTMLElement` properties (`tagName`, `localName`)',
+    'should have `HTMLElement` properties (`tagName`, `localName`, `content`)',
     function () {
       const element = new HTMLElement('someElement');
       expect(element.tagName).to.equal('SOMEELEMENT');
       expect(element.localName).to.equal('someelement');
+
+      const template = new HTMLElement('template');
+      expect(template.tagName).to.equal('TEMPLATE');
+      expect(template.localName).to.equal('template');
+      expect(template).to.have.property('content');
+      expect(template.content.nodeType).to.equal(11);
     }
   );
   it('should serialize properly', function () {

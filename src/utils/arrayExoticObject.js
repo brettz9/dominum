@@ -37,7 +37,7 @@ function arrayExoticObject (target, writable) {
   Object.defineProperties(target, {
     length: {
       value: 0,
-      writable
+      writable: true
     },
     [Symbol.iterator]: {
       value () {
@@ -123,7 +123,7 @@ function arrayExoticObject (target, writable) {
         const index = property >>> 0;
 
         // e.
-        if (index >= oldLen && !allowWrite && oldLenDesc.writable === false) {
+        if (index >= oldLen && !allowWrite && writable === false) {
           return false;
         }
 
@@ -134,7 +134,6 @@ function arrayExoticObject (target, writable) {
         if (!succeeded) {
           return false;
         }
-
         // h.
         if (index >= oldLen) {
           // h.i. and h.ii.

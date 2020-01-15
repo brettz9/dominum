@@ -51,8 +51,24 @@ describe('Dominium API', function () {
   it('`createHTMLDocument` should create an HTML document', function () {
     const doc = createHTMLDocument();
     expect(doc.nodeType).to.equal(9);
+    expect(doc.childNodes.length).to.equal(2);
+    expect(doc.childNodes[0].nodeType).to.equal(10);
+    expect(doc.childNodes[1].nodeType).to.equal(1);
     expect(() => {
       doc.createCDATASection();
     }).to.throw(DOMException, 'Operation is not supported');
   });
+
+  it(
+    '`createHTMLDocument` should create an HTML document without a doctype',
+    function () {
+      const doc = createHTMLDocument({doctype: false});
+      expect(doc.nodeType).to.equal(9);
+      expect(doc.childNodes.length).to.equal(1);
+      expect(doc.childNodes[0].nodeType).to.equal(1);
+      expect(() => {
+        doc.createCDATASection();
+      }).to.throw(DOMException, 'Operation is not supported');
+    }
+  );
 });

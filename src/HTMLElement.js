@@ -1,3 +1,5 @@
+import Element from './Element.js';
+
 class HTMLElement extends Element {
   constructor (name, ownerDocument) {
     super(name, 'http://www.w3.org/1999/xhtml', null, ownerDocument);

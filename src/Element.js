@@ -15,9 +15,9 @@ class Element extends Node {
     this.namespaceURI = namespaceURI || null;
     this.prefix = prefix;
 
+    this.localName = name;
     // `tagName` and `nodeName` are not needed by w3c-xmlserializer, but
     //   unobtrusive and basic enough to add
-    this.localName = name;
     this.tagName = name;
     this.nodeName = name;
 

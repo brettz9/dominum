@@ -26,4 +26,12 @@ describe('Element', function () {
       expect(ret).to.be.undefined;
     }).to.not.throw();
   });
+  it('should have `ParentNode` properties (`append`)', function () {
+    const element = new Element('someElement');
+    expect(element.append).to.be.a('function');
+    expect(() => {
+      const ret = element.append();
+      expect(ret).to.be.undefined;
+    }).to.not.throw();
+  });
 });

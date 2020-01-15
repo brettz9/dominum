@@ -49,5 +49,3 @@ npm i -P dominum
 1. Get working!
   1. `NodeList` (use `Proxy`) and `append`
     1. Check `ChildNode` with `remove` with `parentNode`
-  1. `NamedNodeMap` (use `Proxy`)
-    1. Attribute setting on `Element` (with `NamedNodeMap`)

@@ -3,13 +3,15 @@ import Node from './Node.js';
 class Attr extends Node {
   constructor (name, ownerElement, ns) {
     super();
+    // Note: If `ns` is `null` (as with `createAttributeNS`), does not
+    //   get lower-cased.
     // Though these properties are not needed when w3c-xmlserializer directly
     //  serializes Attr, they are needed when part of `Element.attributes`,
     //  so we ensure constructor can build minimal data (could add on methods
     //  that manipulate `attributes`, but other `Attr` creators can use anyways)
     this.localName = ns === undefined ? name.toLowerCase() : name;
-    // attr.name = name; // Not needed by w3c-xmlserializer
-    //  (extender of `createAttribute` can wrap to add if needed)
+    // `name` is not needed by w3c-xmlserializer, but unobtrusive enough to add
+    this.name = name;
     this.value = '';
     this.prefix = null;
     this.namespaceURI = null;

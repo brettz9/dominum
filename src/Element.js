@@ -12,11 +12,14 @@ class Element extends Node {
       : [null, qualifiedNameStr];
 
     this.attributes = new NamedNodeMap();
-    // Could add tagName, nodeName, but extenders of `createElement`,
-    //   etc. can wrap.
-    this.localName = name;
-    this.namespaceURI = namespaceURI;
+    this.namespaceURI = namespaceURI || null;
     this.prefix = prefix;
+
+    // `tagName` and `nodeName` are not needed by w3c-xmlserializer, but
+    //   unobtrusive and basic enough to add
+    this.localName = name;
+    this.tagName = name;
+    this.nodeName = name;
 
     Object.assign(this, ParentNode, ChildNode);
   }

@@ -6,14 +6,14 @@ import ParentNode from './mixins/ParentNode.js';
 import ChildNode from './mixins/ChildNode.js';
 
 class Element extends Node {
-  constructor (qualifiedNameStr, namespaceURI) {
+  constructor (qualifiedNameStr, ns, ownerDocument) {
     super();
     const [prefix, name] = qualifiedNameStr.includes(':')
       ? qualifiedNameStr.split(':')
       : [null, qualifiedNameStr];
 
     this.attributes = new NamedNodeMap();
-    this.namespaceURI = namespaceURI || null;
+    this.namespaceURI = ns !== undefined ? ns : null;
     this.prefix = prefix;
 
     this.localName = name;
@@ -21,6 +21,8 @@ class Element extends Node {
     //   unobtrusive and basic enough to add
     this.tagName = name;
     this.nodeName = name;
+    // Todo: Other Nodes should have also
+    this.ownerDocument = ownerDocument;
 
     Object.assign(this, ParentNode, ChildNode);
   }

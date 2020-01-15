@@ -3,16 +3,22 @@ import HTMLDocument from '../src/HTMLDocument.js';
 
 describe('HTMLElement', function () {
   it('should have `Node` properties', function () {
-    const element = new HTMLElement('someElement');
+    let element = new HTMLElement('someElement');
     expect(element.nodeType).to.equal(1);
     expect(element.parentNode).to.equal(null);
+    const doc = new HTMLDocument();
+    element = new HTMLElement('someElement', doc);
+    expect(element.ownerDocument.nodeType).to.equal(9);
   });
   it(
-    'should have `HTMLElement` properties (`tagName`, `localName`, `content`)',
+    'should have `HTMLElement` properties (`tagName`, `localName`, ' +
+    '`content`, `namespaceURI`, `prefix`)',
     function () {
       const element = new HTMLElement('someElement');
       expect(element.tagName).to.equal('SOMEELEMENT');
       expect(element.localName).to.equal('someelement');
+      expect(element.namespaceURI).to.equal('http://www.w3.org/1999/xhtml');
+      expect(element.prefix).to.equal(null);
 
       let template = new HTMLElement('template');
       expect(template.tagName).to.equal('TEMPLATE');

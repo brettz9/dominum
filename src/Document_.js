@@ -5,6 +5,7 @@
 
 import ParentNode from './mixins/ParentNode.js';
 import Node from './Node.js';
+import Element from './Element.js';
 import Comment from './Comment.js';
 import Attr from './Attr.js';
 import Text from './Text.js';
@@ -41,6 +42,11 @@ class Document extends Node {
   }
   createTextNode (data) {
     return new Text(data);
+  }
+  // createElement's namespace differs on HTML vs. XML documents, but not
+  //  apparently with `createElementNS`
+  createElementNS (namespace, elem) {
+    return new Element(elem, namespace, this);
   }
 }
 Document.prototype.nodeType = 9;

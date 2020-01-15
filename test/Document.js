@@ -41,6 +41,20 @@ describe('Document', function () {
     expect(text.nodeType).to.equal(3);
     expect(text.data).to.equal('some text');
   });
+  it('createElementNS', function () {
+    const doc = new Document();
+    let element = doc.createElementNS('someNamespace', 'aName');
+    expect(element.nodeType).to.equal(1);
+    expect(element.localName).to.equal('aName');
+    expect(element.namespaceURI).to.equal('someNamespace');
+    expect(element.prefix).to.equal(null);
+
+    element = doc.createElementNS('anotherNamespace', 'somePrefix:anotherName');
+    expect(element.nodeType).to.equal(1);
+    expect(element.localName).to.equal('anotherName');
+    expect(element.namespaceURI).to.equal('anotherNamespace');
+    expect(element.prefix).to.equal('somePrefix');
+  });
 });
 
 describe('Document#implementation', function () {

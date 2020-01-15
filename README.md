@@ -49,5 +49,4 @@ npm i -P dominum
 1. Get working/Test!
   1. Fix removal (replace `splice` in `Node#removeChild`)
   1. Complete coverage for exotic array objects
-  1. Add/test namespaced element creation
   1. Add/test namespaced attribute creation

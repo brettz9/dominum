@@ -46,6 +46,9 @@ npm i -P dominum
 
 ## To-dos
 
-1. Get working!
-  1. `NodeList` (use `Proxy`) and `append`
-    1. Check `ChildNode` with `remove` with `parentNode`
+1. Get working/Test!
+  1. Complete coverage for internal `Document_.js` implementation
+  1. Fix removal (replace `splice` in `Node#removeChild`)
+  1. Test namespaces for elements
+  1. Test namespaces for attributes
+  1. Complete coverage for exotic array objects

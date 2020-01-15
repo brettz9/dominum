@@ -10,7 +10,8 @@ class Attr extends Node {
     //  so we ensure constructor can build minimal data (could add on methods
     //  that manipulate `attributes`, but other `Attr` creators can use anyways)
     this.localName = ns === undefined ? name.toLowerCase() : name;
-    // `name` is not needed by w3c-xmlserializer, but unobtrusive enough to add
+    // `name` is not needed by w3c-xmlserializer, but unobtrusive and basic
+    //   enough to add
     this.name = name;
     this.value = '';
     this.prefix = null;

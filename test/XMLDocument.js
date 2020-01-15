@@ -10,4 +10,9 @@ describe('XMLDocument', function () {
     const comment = doc.createComment();
     expect(comment.nodeType).to.equal(8);
   });
+  it('createCDATASection', function () {
+    const doc = new XMLDocument('', '');
+    const cdata = doc.createCDATASection();
+    expect(cdata.nodeType).to.equal(4);
+  });
 });

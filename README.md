@@ -39,7 +39,8 @@ npm i -P dominum
 
 1. Be fully faithful to the DOM in every neglibile way of no use to regular
     DOM building libraries, e.g., erring directly-invoked constructors or
-    `prototype` properties, constructor length, etc. Use [jsdom](https://github.com/jsdom/jsdom/)
+    `prototype` properties, constructor `length`, etc. Use
+    [jsdom](https://github.com/jsdom/jsdom/)
     for more fully accurate behavior (and more complete APIs).
 2. Support all DOM APIs.
 

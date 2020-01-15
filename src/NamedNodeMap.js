@@ -1,4 +1,4 @@
-// Todo (high): Add (standard?) way to populate and retrieve
+// Todo: Add (standard?) way to populate and retrieve
 
 import {arrayExoticObject} from
   './utils/arrayExoticObject.js';

@@ -38,7 +38,17 @@ class Element extends Node {
     attr.value = value;
     this.attributes[this.attributes.length] = attr;
   }
-  // Todo (high): Add `removeAttributeNode`, `setAttributeNode`,
+
+  /*
+  // Todo (high): Note: In XML, sets a namespace declaration for the attribute
+  //  as well; won't use given prefix if already existing with a different
+  //  namespace
+  setAttributeNS (ns, qualifiedName, value) {
+
+  }
+  */
+
+  // Todo: Add `removeAttributeNode`, `setAttributeNode`,
   //   `setAttributeNodeNS`, and use `new Attr()` for new ones
 }
 Element.prototype.nodeType = 1;

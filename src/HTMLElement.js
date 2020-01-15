@@ -20,6 +20,13 @@ class HTMLElement extends Element {
         : ownerDocument.createDocumentFragment();
     }
   }
+
+  /*
+  // Todo (high): Note: doesn't actually set a namespace
+  setAttributeNS (ns, qualifiedName, value) {
+
+  }
+  */
 }
 
 export default HTMLElement;

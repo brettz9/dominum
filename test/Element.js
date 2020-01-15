@@ -32,13 +32,26 @@ describe('Element', function () {
     const result = xmlserializer(element);
     expect(result).to.equal(expected);
   });
-  it('should have `ChildNode` properties (`remove`)', function () {
+  it('`ChildNode` `remove` should not throw', function () {
     const element = new Element('someElement');
     expect(element.remove).to.be.a('function');
     expect(() => {
       const ret = element.remove();
       expect(ret).to.be.undefined;
     }).to.not.throw();
+  });
+  it('`ChildNode` `remove` should remove from container', function () {
+    const element = new Element('someElement');
+    expect(element.remove).to.be.a('function');
+    const childElement = new Element('aChildElement');
+    element.append(childElement);
+    expect(element.childNodes.length).to.equal(1);
+    expect(element.childNodes[0].localName).to.equal('aChildElement');
+    expect(element.childNodes[0].nodeName).to.equal('aChildElement');
+    const ret = childElement.remove();
+    expect(ret).to.be.undefined;
+    expect(element.childNodes.length).to.equal(0);
+    expect(element.childNodes[0]).to.be.undefined;
   });
   it('should have `ParentNode` properties (`append`)', function () {
     const element = new Element('someElement');

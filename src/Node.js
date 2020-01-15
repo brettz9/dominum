@@ -1,10 +1,18 @@
 import DOMException from './DOMException.js';
-import NodeList from './NodeList.js';
+// eslint-disable-next-line import/no-named-default
+import {default as NodeList, setWritingPermission} from './NodeList.js';
 
 class Node {
   constructor () {
     this.parentNode = null;
     this.childNodes = new NodeList();
+  }
+
+  appendChild (arg) {
+    setWritingPermission(true);
+    this.childNodes[this.childNodes.length] = arg;
+    setWritingPermission(false);
+    arg.parentNode = this;
   }
 
   removeChild (child) {

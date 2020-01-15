@@ -22,7 +22,7 @@ class HTMLElement extends Element {
   }
 
   /*
-  // Todo (high): Note: doesn't actually set a namespace
+  // Todo (high): Note: doesn't actually set a namespace in HTML
   setAttributeNS (ns, qualifiedName, value) {
 
   }

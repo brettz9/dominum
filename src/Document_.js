@@ -18,6 +18,7 @@ class Document extends Node {
     this.nodeName = '#document'; // Not needed w3c-xmlserializer
     Object.assign(this, ParentNode);
     if (documentType) {
+      this.doctype = documentType;
       this.append(documentType);
     }
     if (documentElement) {

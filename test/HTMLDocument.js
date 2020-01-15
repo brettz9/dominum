@@ -11,6 +11,8 @@ describe('HTMLDocument', function () {
     const doc = new HTMLDocument('myTitle', new DocumentType('html'));
     const doctype = doc.childNodes[0];
     expect(doctype.nodeType).to.equal(10);
+    expect(doc.doctype.nodeType).to.equal(10);
+    expect(doc.doctype.name).to.equal('html');
     const htmlElement = doc.childNodes[1];
     expect(htmlElement.localName).to.equal('html');
     const head = htmlElement.childNodes[0];
@@ -64,7 +66,7 @@ describe('Document#implementation', function () {
     expect(htmlDoc.nodeType).to.equal(9);
   });
   it('createDocument', function () {
-    const doc = new HTMLDocument('', '');
+    const doc = new HTMLDocument();
     const htmlDoc = doc.implementation.createDocument('aNamespace', 'aName');
     expect(htmlDoc.nodeType).to.equal(9);
   });

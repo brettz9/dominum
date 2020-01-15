@@ -12,7 +12,7 @@ class Attr extends Node {
     name = ns === undefined ? name.toLowerCase() : name;
     this.value = '';
     this.prefix = null;
-    this.namespaceURI = null;
+    this.namespaceURI = ns !== undefined ? ns : null;
 
     this.localName = name;
     // `name` and `nodeName` are not needed by w3c-xmlserializer, but

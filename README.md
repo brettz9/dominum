@@ -47,7 +47,6 @@ npm i -P dominum
 ## To-dos
 
 1. Get working/Test!
-  1. Complete coverage for internal `Document_.js` implementation
   1. Fix removal (replace `splice` in `Node#removeChild`)
   1. Test namespaces for elements
   1. Test namespaces for attributes

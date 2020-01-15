@@ -1,4 +1,5 @@
 import Attr from '../src/Attr.js';
+import Element from '../src/Element.js';
 
 describe('Attr', function () {
   it('should have `Node` properties', function () {
@@ -9,6 +10,15 @@ describe('Attr', function () {
   it('should have `Attr` propertes (`localName`)', function () {
     const attr = new Attr('aName');
     expect(attr.localName).to.equal('aname');
+  });
+  it('should create namespaced `Attr`', function () {
+    const ownerElement = new Element('abc');
+    const ns = 'someNamespace';
+    const attr = new Attr('aName', ownerElement, ns);
+    expect(attr.localName).to.equal('aName');
+    expect(attr.ownerElement.nodeType).to.equal(1);
+    expect(attr.ownerElement.localName).to.equal('abc');
+    expect(attr.namespaceURI).to.equal('someNamespace');
   });
   it('should serialize properly', function () {
     const expected = '';

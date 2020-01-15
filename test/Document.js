@@ -1,9 +1,22 @@
 import Document from '../src/Document.js';
+import DocumentType from '../src/DocumentType.js';
+import Element from '../src/Element.js';
 
 describe('Document', function () {
   it('Has `Document` properties', function () {
     const doc = new Document();
     expect(doc).to.have.property('implementation');
+  });
+  it('Can create with `documentElement`', function () {
+    const documentType = new DocumentType('abc');
+    const documentElement = new Element('def');
+    const doc = new Document(documentType, documentElement);
+    expect(doc.childNodes[0].name).to.equal('abc');
+    expect(doc.doctype.name).to.equal('abc');
+    expect(doc.childNodes[1].localName).to.equal('def');
+    expect(doc.documentElement.localName).to.equal('def');
+    expect(doc.documentElement.nodeType).to.equal(1);
+    expect(doc.nodeType).to.equal(9);
   });
   it('createComment', function () {
     const doc = new Document();
@@ -37,7 +50,7 @@ describe('Document#implementation', function () {
     expect(htmlDoc.nodeType).to.equal(9);
   });
   it('createDocument', function () {
-    const doc = new Document('', '');
+    const doc = new Document();
     const htmlDoc = doc.implementation.createDocument('aNamespace', 'aName');
     expect(htmlDoc.nodeType).to.equal(9);
   });

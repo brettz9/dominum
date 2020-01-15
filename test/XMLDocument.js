@@ -1,9 +1,24 @@
 import XMLDocument from '../src/XMLDocument.js';
+import DocumentType from '../src/DocumentType.js';
 
 describe('XMLDocument', function () {
   it('inherits from Document', function () {
     const doc = new XMLDocument('', '');
     expect(doc).to.have.property('implementation');
+  });
+  it('can build a doctype', function () {
+    const doc = new XMLDocument(
+      'myNamespace', 'myPrefix:myName', new DocumentType('somethingXML')
+    );
+    const doctype = doc.childNodes[0];
+    expect(doctype.nodeType).to.equal(10);
+    expect(doc.doctype.nodeType).to.equal(10);
+    expect(doc.doctype.name).to.equal('somethingXML');
+    const element = doc.childNodes[1];
+    expect(element.localName).to.equal('myName');
+    expect(element.prefix).to.equal('myPrefix');
+    expect(element.namespaceURI).to.equal('myNamespace');
+    expect(element.childNodes[0]).to.be.undefined;
   });
   it('createComment', function () {
     const doc = new XMLDocument('', '');

@@ -10,7 +10,9 @@ module.exports = {
       'Object.assign',
       'Object.defineProperties',
       'Object.getOwnPropertyDescriptor',
+      'Object.keys',
       'Proxy',
+      'Reflect',
       'Symbol.iterator'
     ]
   },

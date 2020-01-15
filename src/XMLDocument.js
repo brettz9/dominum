@@ -1,4 +1,6 @@
-import Document from './Document.js';
+// eslint-disable-next-line import/no-named-default
+import {default as Document, setImplementation} from './Document_.js';
+import Element from './Element.js';
 import CDATASection from './CDATASection.js';
 
 // Note that the distinctive argument, `title` used with `HTMLDocument`
@@ -21,4 +23,5 @@ class XMLDocument extends Document {
   }
 }
 
+export {setImplementation};
 export default XMLDocument;

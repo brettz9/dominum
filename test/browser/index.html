@@ -36,14 +36,17 @@
           '../CDATASection.js',
           '../CharacterData.js',
           '../Comment.js',
+          '../Document.js',
           '../DocumentFragment.js',
           '../DocumentType.js',
           '../DOMException.js',
           '../Element.js',
+          '../HTMLDocument.js',
           '../HTMLElement.js',
           '../index.js',
           '../ProcessingInstruction.js',
-          '../Text.js'
+          '../Text.js',
+          '../XMLDocument.js'
         ].reduce((p, path) => {
           return p.then(() => import(path));
         // eslint-disable-next-line compat/compat

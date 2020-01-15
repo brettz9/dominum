@@ -15,4 +15,12 @@ describe('XMLDocument', function () {
     const cdata = doc.createCDATASection();
     expect(cdata.nodeType).to.equal(4);
   });
+  it('createElement', function () {
+    const doc = new XMLDocument('', '');
+    const element = doc.createElement('a');
+    expect(element.nodeType).to.equal(1);
+    expect(element.localName).to.equal('a');
+    expect(element.nodeName).to.equal('a');
+    expect(element.tagName).to.equal('a');
+  });
 });

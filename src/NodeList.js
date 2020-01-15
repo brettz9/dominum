@@ -1,4 +1,5 @@
-// Todo (high): Add way to populate and retrieve
+import {arrayExoticObject, setWritingPermission} from
+  './utils/arrayExoticObject.js';
 
 /**
  * This class is of the "live" `NodeList` variety (unlike say the `NodeList`
@@ -7,28 +8,10 @@
  */
 class NodeList {
   constructor () {
-    // eslint-disable-next-line consistent-this
-    const target = this;
-    Object.defineProperties(target, {
-      length: {
-        value: 0
-      },
-      [Symbol.iterator]: {
-        value () {
-          let index = 0;
-
-          return {
-            next () {
-              return {
-                value: target[index++],
-                done: index >= target.length
-              };
-            }
-          };
-        }
-      }
-    });
+    // eslint-disable-next-line no-constructor-return
+    return arrayExoticObject(this, false);
   }
 }
 
+export {setWritingPermission};
 export default NodeList;

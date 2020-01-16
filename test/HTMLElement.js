@@ -46,6 +46,8 @@ describe('HTMLElement', function () {
       expect(element.attributes.length).to.equal(1);
       expect(element.attributes[0].name).to.equal('aPrefix:aName');
       expect(element.attributes[0].value).to.equal('val val');
+      expect(element.attributes[0].prefix).to.equal(null);
+      expect(element.attributes[0].namespaceURI).to.equal(null);
     }
   );
   it(
@@ -61,10 +63,12 @@ describe('HTMLElement', function () {
       expect(element.attributes.length).to.equal(1);
       expect(element.attributes[0].name).to.equal('aPrefix:aName');
       expect(element.attributes[0].value).to.equal('new value');
+      expect(element.attributes[0].prefix).to.equal(null);
+      expect(element.attributes[0].namespaceURI).to.equal(null);
     }
   );
   it(
-    '`HTMLElement` `setAttributeNS` should ignore different "namespaced" ' +
+    '`HTMLElement` `setAttributeNS` should not overwrite same "namespaced" ' +
     'attribute',
     function () {
       const element = new HTMLElement('someElement');

@@ -41,6 +41,8 @@ describe('HTMLElement', function () {
       element.setAttributeNS('someNS', 'aPrefix:aName', 'val val');
       expect(element.tagName).to.equal('SOMEELEMENT');
       expect(element.localName).to.equal('someelement');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal('http://www.w3.org/1999/xhtml');
       expect(element.attributes.length).to.equal(1);
       expect(element.attributes[0].name).to.equal('aPrefix:aName');
       expect(element.attributes[0].value).to.equal('val val');
@@ -54,6 +56,8 @@ describe('HTMLElement', function () {
       element.setAttributeNS('someNS', 'aPrefix:aName', 'new value');
       expect(element.tagName).to.equal('SOMEELEMENT');
       expect(element.localName).to.equal('someelement');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal('http://www.w3.org/1999/xhtml');
       expect(element.attributes.length).to.equal(1);
       expect(element.attributes[0].name).to.equal('aPrefix:aName');
       expect(element.attributes[0].value).to.equal('new value');
@@ -69,8 +73,12 @@ describe('HTMLElement', function () {
       expect(element.attributes.length).to.equal(2);
       expect(element.attributes[0].name).to.equal('anotherPrefix:aName');
       expect(element.attributes[0].value).to.equal('val val');
+      expect(element.attributes[0].prefix).to.equal(null);
+      expect(element.attributes[0].namespaceURI).to.equal(null);
       expect(element.attributes[1].name).to.equal('aPrefix:aName');
       expect(element.attributes[1].value).to.equal('new value');
+      expect(element.attributes[1].prefix).to.equal(null);
+      expect(element.attributes[1].namespaceURI).to.equal(null);
     }
   );
   it('should serialize properly', function () {

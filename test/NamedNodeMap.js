@@ -28,6 +28,22 @@ describe('NamedNodeMap', function () {
     expect(namedNodeMap[0]).to.equal(undefined);
     expect(namedNodeMap.length).to.equal(0);
   });
+  it(
+    'should allow partially truncating length (with writing permission)',
+    function () {
+      const namedNodeMap = new NamedNodeMap();
+      const lastValue = setWritingPermission(true);
+      namedNodeMap[0] = 5;
+      namedNodeMap[1] = 7;
+      namedNodeMap[2] = 9;
+      namedNodeMap.length = 1;
+      setWritingPermission(lastValue);
+      expect(namedNodeMap[0]).to.equal(5);
+      expect(namedNodeMap[1]).to.equal(undefined);
+      expect(namedNodeMap[2]).to.equal(undefined);
+      expect(namedNodeMap.length).to.equal(1);
+    }
+  );
   it('should allow extending length (with writing permission)', function () {
     const namedNodeMap = new NamedNodeMap();
     const lastValue = setWritingPermission(true);

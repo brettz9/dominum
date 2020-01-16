@@ -131,6 +131,7 @@ function arrayExoticObject (target, writable) {
           return false;
         })) {
           // 16.b.iv.
+          /* istanbul ignore next */
           return false;
         }
 

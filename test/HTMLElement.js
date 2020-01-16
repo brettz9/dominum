@@ -68,8 +68,8 @@ describe('HTMLElement', function () {
     }
   );
   it(
-    '`HTMLElement` `setAttributeNS` should not overwrite same "namespaced" ' +
-    'attribute',
+    '`HTMLElement` `setAttributeNS` should not overwrite different-prefixed ' +
+    '"namespaced" attribute',
     function () {
       const element = new HTMLElement('someElement');
       element.setAttributeNS('someNS', 'anotherPrefix:aName', 'val val');

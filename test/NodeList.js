@@ -11,4 +11,13 @@ describe('NodeList', function () {
     expect(nodeList.test).to.equal(5);
     expect(nodeList.length).to.equal(0);
   });
+
+  it('should normally throw in setting indexes', function () {
+    const nodeList = new NodeList();
+    expect(nodeList.length).to.equal(0);
+    expect(() => {
+      nodeList[0] = 5;
+    }).to.throw(Error);
+    expect(nodeList[0]).to.equal(undefined);
+  });
 });

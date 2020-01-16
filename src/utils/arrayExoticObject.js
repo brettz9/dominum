@@ -108,6 +108,7 @@ function arrayExoticObject (target, writable) {
           return false;
         }
         // 16.
+        /* istanbul ignore if */
         if (Object.keys(target).filter((key) => {
           return isArrayIndex(key) && parseInt(key) >= newLen;
         }).map((key) => {

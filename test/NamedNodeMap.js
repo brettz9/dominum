@@ -19,6 +19,19 @@ describe('NamedNodeMap', function () {
       expect(namedNodeMap.length).to.equal(1);
     }
   );
+  it(
+    'should allow overwriting numeric indexes (with writing permission)',
+    function () {
+      const namedNodeMap = new NamedNodeMap();
+      const lastValue = setWritingPermission(true);
+      namedNodeMap[0] = 5;
+      // eslint-disable-next-line sonarjs/no-element-overwrite
+      namedNodeMap[0] = 7;
+      setWritingPermission(lastValue);
+      expect(namedNodeMap[0]).to.equal(7);
+      expect(namedNodeMap.length).to.equal(1);
+    }
+  );
   it('should allow truncating length (with writing permission)', function () {
     const namedNodeMap = new NamedNodeMap();
     const lastValue = setWritingPermission(true);

@@ -51,6 +51,26 @@ describe('NamedNodeMap', function () {
       expect(namedNodeMap.length).to.equal(1);
     }
   );
+  it(
+    'should throw in setting non-writable length (with initial writing ' +
+    'permission)',
+    function () {
+      const namedNodeMap = new NamedNodeMap();
+      const lastValue = setWritingPermission(true);
+      namedNodeMap[0] = 5;
+      // eslint-disable-next-line compat/compat
+      Object.defineProperty(namedNodeMap, 'length', {
+        value: namedNodeMap.length,
+        writable: false
+      });
+      expect(() => {
+        namedNodeMap.length = 0;
+      }).to.throw(TypeError);
+      setWritingPermission(lastValue);
+      expect(namedNodeMap[0]).to.equal(5);
+      expect(namedNodeMap.length).to.equal(1);
+    }
+  );
   it('should allow setting and deleting other properties', function () {
     const namedNodeMap = new NamedNodeMap();
     namedNodeMap.test = 5;

@@ -2,7 +2,7 @@
 
 ## 0.1.1
 
-- Avoid including coverage files
+- npm: Add further to ignore file
 
 ## 0.1.0
 

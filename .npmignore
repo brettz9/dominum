@@ -2,3 +2,5 @@ test
 ignore
 coverage
 .nyc_output
+badges
+.*

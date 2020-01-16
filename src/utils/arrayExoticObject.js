@@ -115,6 +115,9 @@ function arrayExoticObject (target, writable) {
           return parseInt(key);
         }).sort((a, b) => {
           // Reverse numerical
+          // `Object.keys` seems to predictably order, so first
+          //   condition seems not reachable, nor last
+          /* istanbul ignore next  */
           return a > b ? -1 : a < b ? 1 : 0;
         }).some((p) => {
           // 16.a.

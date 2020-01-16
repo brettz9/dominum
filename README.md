@@ -43,9 +43,3 @@ npm i -P dominum
     [jsdom](https://github.com/jsdom/jsdom/)
     for more fully accurate behavior (and more complete APIs).
 2. Support all DOM APIs.
-
-## To-dos
-
-1. Get working/Test!
-    1. Exotic array objects
-        1. Complete coverage for exotic array objects

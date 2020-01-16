@@ -5,13 +5,22 @@
   "main": "src/index.js",
   "scripts": {
     "prepublishOnly": "npm run rollup",
+    "coverage-badge": "coveradge --color brightgreen badges/coverage-badge.svg",
+    "coverage": "open-cli http://localhost:8050/coverage/ && npm start",
     "open": "open-cli http://localhost:8050/test/browser/ && npm run start",
     "start": "static -p 8050",
     "rollup": "rollup -c",
     "eslint": "eslint --ext=js,md,html .",
-    "mocha": "mocha --require esm --require test/bootstrap/node test/*.js",
-    "test-cov": "rm -Rf node_modules/.cache && nyc npm run mocha",
+    "mocha": "mocha --require esm --require test/bootstrap/node test/*.js --reporter-options configFile=mocha-multi-reporters.json",
+    "test-cov": "rm -Rf node_modules/.cache && nyc npm run mocha && npm run coverage-badge",
     "test": "npm run eslint && npm run mocha"
+  },
+  "nyc": {
+    "reporter": [
+      "html",
+      "text",
+      "json-summary"
+    ]
   },
   "repository": {
     "type": "git",
@@ -38,6 +47,7 @@
     "@rollup/plugin-node-resolve": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
+    "coveradge": "^0.2.0",
     "eslint": "^6.8.0",
     "eslint-config-ash-nazg": "^16.5.0",
     "eslint-config-standard": "^14.1.0",
@@ -59,6 +69,8 @@
     "eslint-plugin-unicorn": "^15.0.1",
     "esm": "^3.2.25",
     "mocha": "^7.0.0",
+    "mocha-badge-generator": "https://github.com/brettz9/mocha-badge-generator#updated-badge-up",
+    "mocha-multi-reporters": "^1.1.7",
     "node-static": "^0.7.11",
     "nyc": "^15.0.0",
     "open-cli": "^5.0.0",

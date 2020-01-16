@@ -1,6 +1,19 @@
-# dominum
+[![npm](https://img.shields.io/npm/v/dominum.svg)](https://www.npmjs.com/package/dominum)
+[![Dependencies](https://img.shields.io/david/brettz9/dominum.svg)](https://david-dm.org/brettz9/dominum)
+[![devDependencies](https://img.shields.io/david/dev/brettz9/dominum.svg)](https://david-dm.org/brettz9/dominum?type=dev)
 
-**This project is not yet functional!**
+[![testing badge](https://raw.githubusercontent.com/brettz9/dominum/master/badges/tests-badge.svg?sanitize=true)](badges/tests-badge.svg)
+[![coverage badge](https://raw.githubusercontent.com/brettz9/dominum/master/badges/coverage-badge.svg?sanitize=true)](badges/coverage-badge.svg)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/brettz9/dominum/badge.svg)](https://snyk.io/test/github/brettz9/dominum)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/brettz9/dominum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/dominum/alerts)
+[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/brettz9/dominum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/dominum/context:javascript)
+
+[![License](https://img.shields.io/npm/l/dominum.svg)](LICENSE-MIT.txt)
+
+[![issuehunt-to-marktext](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/r/brettz9/dominum)
+
+# dominum
 
 Portmanteau of **DOM** and **min**im**um**
 

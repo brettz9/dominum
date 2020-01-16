@@ -62,6 +62,23 @@ describe('Element', function () {
       expect(element.attributes[0].namespaceURI).to.equal('someNS');
     }
   );
+  it(
+    '`Element` `setAttributeNS` should overwrite non-prefixed ' +
+    'namespaced attribute',
+    function () {
+      const element = new Element('someElement');
+      element.setAttributeNS('someNS', 'aName', 'val val');
+      element.setAttributeNS('someNS', 'aName', 'new value');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal(null);
+      expect(element.attributes.length).to.equal(1);
+      expect(element.attributes[0].name).to.equal('aName');
+      expect(element.attributes[0].localName).to.equal('aName');
+      expect(element.attributes[0].value).to.equal('new value');
+      expect(element.attributes[0].prefix).to.equal(null);
+      expect(element.attributes[0].namespaceURI).to.equal('someNS');
+    }
+  );
   it('should serialize properly', function () {
     const expected = '<someElement/>';
     const element = new Element('someElement');

@@ -22,6 +22,10 @@ A modular representation of the DOM for use in Node.
 There is already the excellent [jsdom](https://github.com/jsdom/jsdom/)
 library, but for some targeted use cases, it is a heavier solution than needed.
 
+Currently is mostly limited to creating Node types and with some means to
+modify them. Future additons may be added in other modules to keep the
+package light.
+
 ## Installation
 
 ```
@@ -52,7 +56,7 @@ npm i -P dominum
 
 1. Be fully faithful to the DOM in every neglibile way of no use to regular
     DOM building libraries, e.g., erring directly-invoked constructors or
-    `prototype` properties, constructor `length`, etc. Use
+    `prototype` properties. Use
     [jsdom](https://github.com/jsdom/jsdom/)
     for more fully accurate behavior (and more complete APIs).
 2. Support all DOM APIs.

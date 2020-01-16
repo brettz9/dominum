@@ -34,10 +34,21 @@ describe('NamedNodeMap', function () {
     expect(namedNodeMap[0]).to.equal(undefined);
     expect(namedNodeMap.length).to.equal(0);
   });
-  it('should allow setting other properties', function () {
+  it('should allow setting and deleting other properties', function () {
     const namedNodeMap = new NamedNodeMap();
     namedNodeMap.test = 5;
     expect(namedNodeMap.test).to.equal(5);
     expect(namedNodeMap.length).to.equal(0);
+    delete namedNodeMap.test;
+    expect(namedNodeMap.test).to.equal(undefined);
+    expect(namedNodeMap.length).to.equal(0);
+  });
+  it('should normally throw in setting indexes', function () {
+    const nodeList = new NamedNodeMap();
+    expect(nodeList.length).to.equal(0);
+    expect(() => {
+      nodeList[0] = 5;
+    }).to.throw(Error);
+    expect(nodeList[0]).to.equal(undefined);
   });
 });

@@ -57,6 +57,21 @@ function arrayExoticObject (target, writable) {
     }
   });
   return new Proxy(target, {
+    deleteProperty (target, property) {
+      if (isArrayIndex(property)) {
+        Reflect.deleteProperty(target, property);
+
+        // Todo: Examine spec to ensure following closely here
+        // eslint-disable-next-line no-bitwise
+        const index = property >>> 0;
+        for (let i = index + 1; i < target.length; i++) {
+          target[i - 1] = target[i];
+          delete target[i];
+        }
+        return Reflect.set(target, 'length', target.length - 1);
+      }
+      return Reflect.deleteProperty(target, property);
+    },
     set (target, property, value, receiver) {
       // https://tc39.es/ecma262/#sec-array-exotic-objects-defineownproperty-p-desc
       if (property === 'length') {

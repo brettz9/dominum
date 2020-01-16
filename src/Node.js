@@ -19,7 +19,10 @@ class Node {
     // Could replace with `some` if `NodeList` ever adds
     for (let i = 0; i < this.childNodes.length; i++) {
       if (this.childNodes[i] === child) {
-        return this.childNodes.splice(i, 1);
+        // splice one (our Proxy's `deleteProperty` to handle the rest)
+        const removed = this.childNodes[i];
+        delete this.childNodes[i];
+        return removed;
       }
     }
     throw new DOMException('Node was not found', 'NotFoundError');

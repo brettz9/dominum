@@ -48,5 +48,4 @@ npm i -P dominum
 
 1. Get working/Test!
     1. Exotic array objects
-        1. Fix removal (replace `splice` in `Node#removeChild`)
         1. Complete coverage for exotic array objects

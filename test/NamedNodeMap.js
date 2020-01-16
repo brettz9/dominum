@@ -8,32 +8,49 @@ describe('NamedNodeMap', function () {
     const namedNodeMap = new NamedNodeMap();
     expect(namedNodeMap.length).to.equal(0);
   });
-  it('should allow setting numeric indexes', function () {
+  it(
+    'should allow setting numeric indexes (with writing permission)',
+    function () {
+      const namedNodeMap = new NamedNodeMap();
+      const lastValue = setWritingPermission(true);
+      namedNodeMap[0] = 5;
+      setWritingPermission(lastValue);
+      expect(namedNodeMap[0]).to.equal(5);
+      expect(namedNodeMap.length).to.equal(1);
+    }
+  );
+  it('should allow truncating length (with writing permission)', function () {
     const namedNodeMap = new NamedNodeMap();
     const lastValue = setWritingPermission(true);
     namedNodeMap[0] = 5;
+    namedNodeMap.length = 0;
+    setWritingPermission(lastValue);
+    expect(namedNodeMap[0]).to.equal(undefined);
+    expect(namedNodeMap.length).to.equal(0);
+  });
+  it('should allow extending length (with writing permission)', function () {
+    const namedNodeMap = new NamedNodeMap();
+    const lastValue = setWritingPermission(true);
+    namedNodeMap[0] = 5;
+    namedNodeMap.length = 5;
     setWritingPermission(lastValue);
     expect(namedNodeMap[0]).to.equal(5);
-    expect(namedNodeMap.length).to.equal(1);
+    expect(namedNodeMap.length).to.equal(5);
   });
-  it('should allow truncating length', function () {
-    const namedNodeMap = new NamedNodeMap();
-    const lastValue = setWritingPermission(true);
-    namedNodeMap[0] = 5;
-    namedNodeMap.length = 0;
-    setWritingPermission(lastValue);
-    expect(namedNodeMap[0]).to.equal(undefined);
-    expect(namedNodeMap.length).to.equal(0);
-  });
-  it('should allow extending length', function () {
-    const namedNodeMap = new NamedNodeMap();
-    const lastValue = setWritingPermission(true);
-    namedNodeMap[0] = 5;
-    namedNodeMap.length = 0;
-    setWritingPermission(lastValue);
-    expect(namedNodeMap[0]).to.equal(undefined);
-    expect(namedNodeMap.length).to.equal(0);
-  });
+  it(
+    'should throw in setting bad length (with writing permission)',
+    function () {
+      const namedNodeMap = new NamedNodeMap();
+      const lastValue = setWritingPermission(true);
+      namedNodeMap[0] = 5;
+      expect(() => {
+        namedNodeMap.length = Infinity;
+      }).to.throw(RangeError, 'Unexpected length');
+      setWritingPermission(lastValue);
+      expect(namedNodeMap[0]).to.equal(5);
+      expect(namedNodeMap.length).to.equal(1);
+    }
+  );
   it('should allow setting and deleting other properties', function () {
     const namedNodeMap = new NamedNodeMap();
     namedNodeMap.test = 5;

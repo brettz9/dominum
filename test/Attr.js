@@ -16,6 +16,8 @@ describe('Attr', function () {
     const ns = 'someNamespace';
     const attr = new Attr('aName', ownerElement, ns);
     expect(attr.localName).to.equal('aName');
+    expect(attr.name).to.equal('aName');
+    expect(attr.nodeName).to.equal('aName');
     expect(attr.ownerElement.nodeType).to.equal(1);
     expect(attr.ownerElement.localName).to.equal('abc');
     expect(attr.namespaceURI).to.equal('someNamespace');
@@ -25,6 +27,8 @@ describe('Attr', function () {
     const ns = 'someNamespace';
     const attr = new Attr('aPrefix:aName', ownerElement, ns);
     expect(attr.localName).to.equal('aName');
+    expect(attr.name).to.equal('aPrefix:aName');
+    expect(attr.nodeName).to.equal('aPrefix:aName');
     expect(attr.prefix).to.equal('aPrefix');
     expect(attr.namespaceURI).to.equal('someNamespace');
     expect(attr.ownerElement.nodeType).to.equal(1);

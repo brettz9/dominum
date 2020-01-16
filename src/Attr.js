@@ -4,7 +4,7 @@ class Attr extends Node {
   constructor (qualifiedNameStr, ownerElement, ns) {
     super();
     const hasPrefix = qualifiedNameStr.includes(':');
-    let [prefix, name] = ns !== undefined && hasPrefix
+    const [prefix, localName] = ns !== undefined && hasPrefix
       ? qualifiedNameStr.split(':')
       : [null, qualifiedNameStr];
     // Note: If `ns` is `null` (as with `createAttributeNS`), does not
@@ -13,12 +13,16 @@ class Attr extends Node {
     //  serializes Attr, they are needed when part of `Element.attributes`,
     //  so we ensure constructor can build minimal data (could add on methods
     //  that manipulate `attributes`, but other `Attr` creators can use anyways)
-    name = ns === undefined && !hasPrefix ? name.toLowerCase() : name;
+    const name = ns === undefined && !hasPrefix
+      ? qualifiedNameStr.toLowerCase()
+      : qualifiedNameStr;
     this.value = '';
     this.prefix = prefix || null;
     this.namespaceURI = ns !== undefined ? ns : null;
 
-    this.localName = name;
+    this.localName = ns === undefined && !hasPrefix
+      ? localName.toLowerCase()
+      : localName;
     // `name` and `nodeName` are not needed by w3c-xmlserializer, but
     //   unobtrusive and basic enough to add
     this.name = name;

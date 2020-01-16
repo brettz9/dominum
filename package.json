@@ -4,7 +4,7 @@
   "description": "Minimalist and extensible DOM",
   "main": "src/index.js",
   "scripts": {
-    "prepublishOnly": "npm run rollup",
+    "prepublishOnly": "npm run eslint && npm run rollup",
     "coverage-badge": "coveradge --color brightgreen badges/coverage-badge.svg",
     "coverage": "open-cli http://localhost:8050/coverage/ && npm start",
     "open": "open-cli http://localhost:8050/test/browser/ && npm run start",

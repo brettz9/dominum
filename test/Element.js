@@ -11,6 +11,57 @@ describe('Element', function () {
     expect(element.tagName).to.equal('someElement');
     expect(element.localName).to.equal('someElement');
   });
+  it(
+    '`Element` `setAttributeNS` should set namespaced attribute',
+    function () {
+      const element = new Element('someElement');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'val val');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal(null);
+      expect(element.tagName).to.equal('someElement');
+      expect(element.localName).to.equal('someElement');
+      expect(element.attributes.length).to.equal(1);
+      expect(element.attributes[0].name).to.equal('aPrefix:aName');
+      expect(element.attributes[0].localName).to.equal('aName');
+      expect(element.attributes[0].value).to.equal('val val');
+      expect(element.attributes[0].prefix).to.equal('aPrefix');
+      expect(element.attributes[0].namespaceURI).to.equal('someNS');
+    }
+  );
+  it(
+    '`Element` `setAttributeNS` should overwrite namespaced attribute',
+    function () {
+      const element = new Element('someElement');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'val val');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'new value');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal(null);
+      expect(element.tagName).to.equal('someElement');
+      expect(element.localName).to.equal('someElement');
+      expect(element.attributes.length).to.equal(1);
+      expect(element.attributes[0].name).to.equal('aPrefix:aName');
+      expect(element.attributes[0].value).to.equal('new value');
+      expect(element.attributes[0].prefix).to.equal('aPrefix');
+      expect(element.attributes[0].namespaceURI).to.equal('someNS');
+    }
+  );
+  it(
+    '`Element` `setAttributeNS` should overwrite different-prefixed ' +
+    'namespaced attribute',
+    function () {
+      const element = new Element('someElement');
+      element.setAttributeNS('someNS', 'anotherPrefix:aName', 'val val');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'new value');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal(null);
+      expect(element.attributes.length).to.equal(1);
+      expect(element.attributes[0].name).to.equal('aPrefix:aName');
+      expect(element.attributes[0].localName).to.equal('aName');
+      expect(element.attributes[0].value).to.equal('new value');
+      expect(element.attributes[0].prefix).to.equal('aPrefix');
+      expect(element.attributes[0].namespaceURI).to.equal('someNS');
+    }
+  );
   it('should serialize properly', function () {
     const expected = '<someElement/>';
     const element = new Element('someElement');

@@ -39,14 +39,25 @@ class Element extends Node {
     this.attributes[this.attributes.length] = attr;
   }
 
-  /*
-  // Todo (high): Note: In XML, sets a namespace declaration for the attribute
-  //  as well; won't use given prefix if already existing with a different
+  // Note: Won't use given prefix if already existing with a different
   //  namespace
   setAttributeNS (ns, qualifiedName, value) {
-
+    for (const att of this.attributes) {
+      const [prefix, name] = qualifiedName.includes(':')
+        ? qualifiedName.split(':')
+        : [null, qualifiedName];
+      if (att.localName === name && att.namespaceURI === ns) {
+        att.value = value;
+        // Prefix may now be different, so set
+        att.name = prefix !== null ? qualifiedName : name;
+        att.prefix = prefix;
+        return;
+      }
+    }
+    const attr = new Attr(qualifiedName, this, ns);
+    attr.value = value;
+    this.attributes[this.attributes.length] = attr;
   }
-  */
 
   // Todo: Add `removeAttributeNode`, `setAttributeNode`,
   //   `setAttributeNodeNS`, and use `new Attr()` for new ones

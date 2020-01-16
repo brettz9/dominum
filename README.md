@@ -47,7 +47,7 @@ npm i -P dominum
 ## To-dos
 
 1. Get working/Test!
-    1. Add/test namespaced attribute creation
+    1. Add/test namespaced attribute creation for `Element`
     1. Exotic array objects
         1. Fix removal (replace `splice` in `Node#removeChild`)
         1. Complete coverage for exotic array objects

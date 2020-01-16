@@ -1,4 +1,5 @@
 import Element from './Element.js';
+import Attr from './Attr.js';
 import DocumentFragment from './DocumentFragment.js';
 
 class HTMLElement extends Element {
@@ -21,12 +22,18 @@ class HTMLElement extends Element {
     }
   }
 
-  /*
-  // Todo (high): Note: doesn't actually set a namespace in HTML
+  // Note: doesn't actually set a namespace in HTML
   setAttributeNS (ns, qualifiedName, value) {
-
+    for (const att of this.attributes) {
+      if (att.name === qualifiedName) {
+        att.value = value;
+        return;
+      }
+    }
+    const attr = new Attr(qualifiedName, this);
+    attr.value = value;
+    this.attributes[this.attributes.length] = attr;
   }
-  */
 }
 
 export default HTMLElement;

@@ -34,6 +34,45 @@ describe('HTMLElement', function () {
       expect(template.content.nodeType).to.equal(11);
     }
   );
+  it(
+    '`HTMLElement` `setAttributeNS` should set "namespaced" attribute',
+    function () {
+      const element = new HTMLElement('someElement');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'val val');
+      expect(element.tagName).to.equal('SOMEELEMENT');
+      expect(element.localName).to.equal('someelement');
+      expect(element.attributes.length).to.equal(1);
+      expect(element.attributes[0].name).to.equal('aPrefix:aName');
+      expect(element.attributes[0].value).to.equal('val val');
+    }
+  );
+  it(
+    '`HTMLElement` `setAttributeNS` should overwrite "namespaced" attribute',
+    function () {
+      const element = new HTMLElement('someElement');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'val val');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'new value');
+      expect(element.tagName).to.equal('SOMEELEMENT');
+      expect(element.localName).to.equal('someelement');
+      expect(element.attributes.length).to.equal(1);
+      expect(element.attributes[0].name).to.equal('aPrefix:aName');
+      expect(element.attributes[0].value).to.equal('new value');
+    }
+  );
+  it(
+    '`HTMLElement` `setAttributeNS` should ignore different "namespaced" ' +
+    'attribute',
+    function () {
+      const element = new HTMLElement('someElement');
+      element.setAttributeNS('someNS', 'anotherPrefix:aName', 'val val');
+      element.setAttributeNS('someNS', 'aPrefix:aName', 'new value');
+      expect(element.attributes.length).to.equal(2);
+      expect(element.attributes[0].name).to.equal('anotherPrefix:aName');
+      expect(element.attributes[0].value).to.equal('val val');
+      expect(element.attributes[1].name).to.equal('aPrefix:aName');
+      expect(element.attributes[1].value).to.equal('new value');
+    }
+  );
   it('should serialize properly', function () {
     const expected = '<someelement xmlns="http://www.w3.org/1999/xhtml"></someelement>';
     const element = new HTMLElement('someElement');

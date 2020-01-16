@@ -20,7 +20,7 @@ import {
   createHTMLDocument
 } from '../src/index.js';
 
-describe('Dominium API', function () {
+describe('Dominum API', function () {
   it('has classes', function () {
     [
       DOMException,

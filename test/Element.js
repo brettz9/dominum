@@ -79,6 +79,31 @@ describe('Element', function () {
       expect(element.attributes[0].namespaceURI).to.equal('someNS');
     }
   );
+  it(
+    '`Element` `setAttributeNS` should ignore different-namespaced ' +
+    'attribute',
+    function () {
+      const element = new Element('someElement');
+      element.setAttributeNS('someNS', 'anotherPrefix:aName', 'val val');
+      element.setAttributeNS('someNSB', 'aPrefix:aName', 'new value');
+      expect(element.prefix).to.equal(null);
+      expect(element.namespaceURI).to.equal(null);
+      expect(element.attributes.length).to.equal(2);
+
+      expect(element.attributes[0].name).to.equal('anotherPrefix:aName');
+      expect(element.attributes[0].localName).to.equal('aName');
+      expect(element.attributes[0].value).to.equal('val val');
+      expect(element.attributes[0].prefix).to.equal('anotherPrefix');
+      expect(element.attributes[0].namespaceURI).to.equal('someNS');
+
+      expect(element.attributes[1].name).to.equal('aPrefix:aName');
+      expect(element.attributes[1].localName).to.equal('aName');
+      expect(element.attributes[1].value).to.equal('new value');
+      expect(element.attributes[1].prefix).to.equal('aPrefix');
+      expect(element.attributes[1].namespaceURI).to.equal('someNSB');
+    }
+  );
+
   it('should serialize properly', function () {
     const expected = '<someElement/>';
     const element = new Element('someElement');

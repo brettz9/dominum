@@ -71,6 +71,28 @@ describe('NamedNodeMap', function () {
       expect(namedNodeMap.length).to.equal(1);
     }
   );
+  /*
+  it(
+    'should throw in truncating with non-writable property (with initial ' +
+    'writing permission)',
+    function () {
+      const namedNodeMap = new NamedNodeMap();
+      const lastValue = setWritingPermission(true);
+      namedNodeMap[0] = 5;
+      // eslint-disable-next-line compat/compat
+      Object.defineProperty(namedNodeMap, '0', {
+        value: 5,
+        writable: false
+      });
+      expect(() => {
+        namedNodeMap.length = 0;
+      }).to.throw(TypeError);
+      setWritingPermission(lastValue);
+      expect(namedNodeMap[0]).to.equal(5);
+      expect(namedNodeMap.length).to.equal(1);
+    }
+  );
+  */
   it('should allow setting and deleting other properties', function () {
     const namedNodeMap = new NamedNodeMap();
     namedNodeMap.test = 5;
@@ -80,6 +102,27 @@ describe('NamedNodeMap', function () {
     expect(namedNodeMap.test).to.equal(undefined);
     expect(namedNodeMap.length).to.equal(0);
   });
+  /*
+  it('should throw if deleting non-writable property', function () {
+    const namedNodeMap = new NamedNodeMap();
+    const lastValue = setWritingPermission(true);
+    namedNodeMap[0] = 5;
+    expect(namedNodeMap[0]).to.equal(5);
+    setWritingPermission(lastValue);
+    // eslint-disable-next-line compat/compat
+    Object.defineProperty(namedNodeMap, '0', {
+      value: 5,
+      writable: false
+    });
+    expect(namedNodeMap[0]).to.equal(5);
+    expect(namedNodeMap.length).to.equal(1);
+    expect(() => {
+      delete namedNodeMap[0];
+    }).to.throw(TypeError);
+    expect(namedNodeMap[0]).to.equal(5);
+    expect(namedNodeMap.length).to.equal(1);
+  });
+  */
   it('should normally throw in setting indexes', function () {
     const nodeList = new NamedNodeMap();
     expect(nodeList.length).to.equal(0);

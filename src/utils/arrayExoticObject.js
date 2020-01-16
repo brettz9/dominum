@@ -59,7 +59,12 @@ function arrayExoticObject (target, writable) {
   return new Proxy(target, {
     deleteProperty (target, property) {
       if (isArrayIndex(property)) {
-        Reflect.deleteProperty(target, property);
+        const succeeded = Reflect.deleteProperty(target, property);
+        // Not sure how to simulate (if possible)
+        /* istanbul ignore next */
+        if (!succeeded) {
+          return false;
+        }
 
         // Todo: Examine spec to ensure following closely here
         // eslint-disable-next-line no-bitwise
@@ -114,6 +119,9 @@ function arrayExoticObject (target, writable) {
           // 16.a.
           const deleteSucceeded = Reflect.deleteProperty(target, p);
           // 16.b.
+          // Can't seem to simulate a failure, and `deleteProperty` seems
+          //  not internally triggered here, including with `delete`
+          /* istanbul ignore next */
           if (!deleteSucceeded) {
             // 16.b.i., 16.b.iii
             // eslint-disable-next-line no-bitwise
@@ -148,6 +156,8 @@ function arrayExoticObject (target, writable) {
         const succeeded = Reflect.set(target, property, value);
 
         // g.
+        // How to simulate failure (if possible)?
+        /* istanbul ignore next */
         if (!succeeded) {
           return false;
         }

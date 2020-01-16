@@ -1,6 +1,7 @@
-// Todo: Add (standard?) way to populate and retrieve
+// Todo: Add `setNamedItem`, `getNamedItem`, `removeNamedItem` way
+//   to populate, retrieve, and remove (and *NS methods)
 
-import {arrayExoticObject} from
+import {arrayExoticObject, setWritingPermission} from
   './utils/arrayExoticObject.js';
 
 /**
@@ -10,8 +11,9 @@ import {arrayExoticObject} from
 class NamedNodeMap {
   constructor () {
     // eslint-disable-next-line no-constructor-return
-    return arrayExoticObject(this, true);
+    return arrayExoticObject(this, false);
   }
 }
 
+export {setWritingPermission};
 export default NamedNodeMap;

@@ -1,6 +1,7 @@
 import Node from './Node.js';
 import Attr from './Attr.js';
-import NamedNodeMap from './NamedNodeMap.js';
+// eslint-disable-next-line import/no-named-default
+import {default as NamedNodeMap, setWritingPermission} from './NamedNodeMap.js';
 
 import ParentNode from './mixins/ParentNode.js';
 import ChildNode from './mixins/ChildNode.js';
@@ -36,7 +37,9 @@ class Element extends Node {
     }
     const attr = new Attr(name, this);
     attr.value = value;
+    const lastValue = setWritingPermission(true);
     this.attributes[this.attributes.length] = attr;
+    setWritingPermission(lastValue);
   }
 
   // Note: Won't use given prefix if already existing with a different
@@ -56,7 +59,9 @@ class Element extends Node {
     }
     const attr = new Attr(qualifiedName, this, ns);
     attr.value = value;
+    const lastValue = setWritingPermission(true);
     this.attributes[this.attributes.length] = attr;
+    setWritingPermission(lastValue);
   }
 
   // Todo: Add `removeAttributeNode`, `setAttributeNode`,

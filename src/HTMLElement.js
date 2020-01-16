@@ -1,6 +1,7 @@
 import Element from './Element.js';
 import Attr from './Attr.js';
 import DocumentFragment from './DocumentFragment.js';
+import {setWritingPermission} from './NamedNodeMap.js';
 
 class HTMLElement extends Element {
   constructor (name, ownerDocument) {
@@ -32,7 +33,10 @@ class HTMLElement extends Element {
     }
     const attr = new Attr(qualifiedName, this);
     attr.value = value;
+
+    const lastValue = setWritingPermission(true);
     this.attributes[this.attributes.length] = attr;
+    setWritingPermission(lastValue);
   }
 }
 

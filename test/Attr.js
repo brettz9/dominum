@@ -20,6 +20,16 @@ describe('Attr', function () {
     expect(attr.ownerElement.localName).to.equal('abc');
     expect(attr.namespaceURI).to.equal('someNamespace');
   });
+  it('should create prefixed namespaced `Attr`', function () {
+    const ownerElement = new Element('abc');
+    const ns = 'someNamespace';
+    const attr = new Attr('aPrefix:aName', ownerElement, ns);
+    expect(attr.localName).to.equal('aName');
+    expect(attr.prefix).to.equal('aPrefix');
+    expect(attr.namespaceURI).to.equal('someNamespace');
+    expect(attr.ownerElement.nodeType).to.equal(1);
+    expect(attr.ownerElement.localName).to.equal('abc');
+  });
   it('should serialize properly', function () {
     const expected = '';
     const attr = new Attr('someName');

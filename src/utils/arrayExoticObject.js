@@ -1,3 +1,9 @@
+/**
+ * @license MIT
+ * @author Sam Sneddon, Filip Dupanović, Brett Zamir
+ * @copyright © 2016 Sam Sneddon, Filip Dupanović, © 2020 Brett Zamir
+ */
+
 let allowWrite;
 /**
  * @param {boolean} isAllowed

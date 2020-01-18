@@ -60,3 +60,51 @@ npm i -P dominum
     [jsdom](https://github.com/jsdom/jsdom/)
     for more fully accurate behavior (and more complete APIs).
 2. Support all DOM APIs.
+
+## Usage
+
+### ESM
+
+The classes are available as such:
+
+```js
+import {
+  DOMException,
+  Node, ParentNode, ChildNode,
+
+  NamedNodeMap, NodeList,
+  Element, HTMLElement,
+  Attr,
+  DocumentFragment,
+  ProcessingInstruction,
+  CharacterData, Comment,
+  Text, CDATASection,
+  DocumentType,
+  Document, HTMLDocument, XMLDocument,
+
+  // Custom
+  createHTMLDocument
+} from 'dominum';
+```
+
+You can also import the specific module files:
+
+```js
+import {Document} from 'dominum/src/Document';
+```
+
+### Node.js
+
+```js
+const {createHTMLDocument} = require('dominum');
+```
+
+### Browser
+
+```js
+Dominum.createHTMLDocument();
+```
+
+## To-dos
+
+1. Add browser tests

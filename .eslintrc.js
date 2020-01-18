@@ -24,8 +24,14 @@ module.exports = {
   overrides: [
     {
       files: '*.md',
+      globals: {
+        Dominum: true
+      },
       rules: {
-
+        'import/unambiguous': 0,
+        'import/no-commonjs': 0,
+        'import/no-unresolved': ['error', {ignore: ['dominum']}],
+        'no-unused-vars': ['error', {varsIgnorePattern: 'DOMException|Node|ParentNode|ChildNode|NamedNodeMap|NodeList|Element|HTMLElement|Attr|DocumentFragment|ProcessingInstruction|CharacterData|Comment|Text|CDATASection|DocumentType|Document|HTMLDocument|XMLDocument|createHTMLDocument'}]
       }
     },
     {

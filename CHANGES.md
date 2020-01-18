@@ -1,5 +1,10 @@
 # CHANGES for dominum
 
+## 0.1.3
+
+- Build: Export `setNodeListWritingPermission` and
+  `setNamedNodeMapWritingPermission`
+
 ## 0.1.2
 
 - npm: Point to proper file in `package.json` `main` and `module`

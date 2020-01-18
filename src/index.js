@@ -1,24 +1,32 @@
-import DOMException from './DOMException.js';
-import NodeList from './NodeList.js';
-import NamedNodeMap from './NamedNodeMap.js';
-
-import Element from './Element.js';
-import HTMLElement from './HTMLElement.js';
-import Attr from './Attr.js';
-import Node from './Node.js';
-import DocumentFragment from './DocumentFragment.js';
-import ProcessingInstruction from './ProcessingInstruction.js';
-import CharacterData from './CharacterData.js';
-import Comment from './Comment.js';
-import Text from './Text.js';
-import CDATASection from './CDATASection.js';
-import DocumentType from './DocumentType.js';
 import Document from './Document.js';
 import HTMLDocument from './HTMLDocument.js';
-import XMLDocument from './XMLDocument.js';
 
-import ParentNode from './mixins/ParentNode.js';
-import ChildNode from './mixins/ChildNode.js';
+export {default as DOMException} from './DOMException.js';
+
+export {
+  default as NodeList,
+  setWritingPermission as setNodeListWritingPermission
+} from './NodeList.js';
+export {
+  default as NamedNodeMap,
+  setWritingPermission as setNamedNodeMapWritingPermission
+} from './NamedNodeMap.js';
+
+export {default as Element} from './Element.js';
+export {default as HTMLElement} from './HTMLElement.js';
+export {default as Attr} from './Attr.js';
+export {default as Node} from './Node.js';
+export {default as DocumentFragment} from './DocumentFragment.js';
+export {default as ProcessingInstruction} from './ProcessingInstruction.js';
+export {default as CharacterData} from './CharacterData.js';
+export {default as Comment} from './Comment.js';
+export {default as Text} from './Text.js';
+export {default as CDATASection} from './CDATASection.js';
+export {default as DocumentType} from './DocumentType.js';
+export {default as XMLDocument} from './XMLDocument.js';
+
+export {default as ParentNode} from './mixins/ParentNode.js';
+export {default as ChildNode} from './mixins/ChildNode.js';
 
 /**
  * A non-standard utility to more easily create documents (especially useful
@@ -38,18 +46,7 @@ const createHTMLDocument = ({title = undefined, doctype = true} = {}) => {
 };
 
 export {
-  DOMException,
-  Node, ParentNode, ChildNode,
-
-  NamedNodeMap, NodeList,
-  Element, HTMLElement,
-  Attr,
-  DocumentFragment,
-  ProcessingInstruction,
-  CharacterData, Comment,
-  Text, CDATASection,
-  DocumentType,
-  Document, HTMLDocument, XMLDocument,
+  Document, HTMLDocument,
 
   // Note that the following Nodes (`nodeType` in parentheses) have been
   // removed in DOM4, so are not available:

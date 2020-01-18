@@ -73,6 +73,8 @@ import {
   Node, ParentNode, ChildNode,
 
   NamedNodeMap, NodeList,
+  setNodeListWritingPermission, setNamedNodeMapWritingPermission,
+
   Element, HTMLElement,
   Attr,
   DocumentFragment,

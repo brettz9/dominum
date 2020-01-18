@@ -1,8 +1,9 @@
 {
   "name": "dominum",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Minimalist and extensible DOM",
-  "main": "src/index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
   "scripts": {
     "prepublishOnly": "npm run eslint && npm run rollup",
     "coverage-badge": "coveradge --color brightgreen badges/coverage-badge.svg",

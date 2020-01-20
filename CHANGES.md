@@ -5,6 +5,7 @@
 - Build: Update map file
 - Linting (ESLint): As per latest ash-nazg
 - npm: Switch to non-deprecated `@rollup/plugin-commonjs`
+- npm: Use stable `mocha-multi-reporters`
 - npm: Update devDeps. and package-lock
 
 ## 0.2.0

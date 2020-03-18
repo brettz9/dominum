@@ -1,6 +1,14 @@
 import Node from './Node.js';
 
+/**
+ * `Attr`
+ */
 class Attr extends Node {
+  /**
+   * @param {string} qualifiedNameStr
+   * @param {Element} ownerElement
+   * @param {string} ns
+   */
   constructor (qualifiedNameStr, ownerElement, ns) {
     super();
     const hasPrefix = qualifiedNameStr.includes(':');

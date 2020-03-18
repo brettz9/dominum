@@ -47,7 +47,7 @@ if(!_P.adv){ _P.adv=true;
 var $0=_P.cur();
 if($0==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("A"<=$0&&$0<="Z");
 }
 }
@@ -58,7 +58,7 @@ if(!_P.adv){ _P.adv=true;
 var $1=_P.cur();
 if($1==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("a"<=$1&&$1<="z");
 }
 }
@@ -66,7 +66,7 @@ if(!_P.adv){ _P.adv=true;
 var $2=_P.cur();
 if($2==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u00C0"<=$2&&$2<="\u00D6");
 }
 }
@@ -74,7 +74,7 @@ if(!_P.adv){ _P.adv=true;
 var $3=_P.cur();
 if($3==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u00D8"<=$3&&$3<="\u00F6");
 }
 }
@@ -82,7 +82,7 @@ if(!_P.adv){ _P.adv=true;
 var $4=_P.cur();
 if($4==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u00F8"<=$4&&$4<="\u02FF");
 }
 }
@@ -90,7 +90,7 @@ if(!_P.adv){ _P.adv=true;
 var $5=_P.cur();
 if($5==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u0370"<=$5&&$5<="\u037D");
 }
 }
@@ -98,7 +98,7 @@ if(!_P.adv){ _P.adv=true;
 var $6=_P.cur();
 if($6==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u037F"<=$6&&$6<="\u1FFF");
 }
 }
@@ -106,7 +106,7 @@ if(!_P.adv){ _P.adv=true;
 var $7=_P.cur();
 if($7==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u200C"<=$7&&$7<="\u200D");
 }
 }
@@ -114,7 +114,7 @@ if(!_P.adv){ _P.adv=true;
 var $8=_P.cur();
 if($8==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u2070"<=$8&&$8<="\u218F");
 }
 }
@@ -122,7 +122,7 @@ if(!_P.adv){ _P.adv=true;
 var $9=_P.cur();
 if($9==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u2C00"<=$9&&$9<="\u2FEF");
 }
 }
@@ -130,7 +130,7 @@ if(!_P.adv){ _P.adv=true;
 var $a=_P.cur();
 if($a==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u3001"<=$a&&$a<="\uD7FF");
 }
 }
@@ -138,7 +138,7 @@ if(!_P.adv){ _P.adv=true;
 var $b=_P.cur();
 if($b==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\uF900"<=$b&&$b<="\uFDCF");
 }
 }
@@ -146,7 +146,7 @@ if(!_P.adv){ _P.adv=true;
 var $c=_P.cur();
 if($c==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\uFDF0"<=$c&&$c<="\uFFFD");
 }
 }
@@ -154,13 +154,13 @@ if(!_P.adv){ _P.adv=true;
 $d:{var $e=_P.pos;
 var $f=_P.cur();
 if($f==null){_P.adv=false;
-}else{
+}else {
 _P.step("\uD800"<=$f&&$f<="\uDB7F");
 }
 if(!_P.adv) break $d;
 var $g=_P.cur();
 if($g==null){_P.adv=false;
-}else{
+}else {
 _P.step("\uDC00"<=$g&&$g<="\uDFFF");
 }
 var _R=_P.doc.substring($e,_P.pos);
@@ -181,7 +181,7 @@ if(!_P.adv){ _P.adv=true;
 var $0=_P.cur();
 if($0==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("0"<=$0&&$0<="9");
 }
 }
@@ -192,7 +192,7 @@ if(!_P.adv){ _P.adv=true;
 var $1=_P.cur();
 if($1==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u0300"<=$1&&$1<="\u036F");
 }
 }
@@ -200,7 +200,7 @@ if(!_P.adv){ _P.adv=true;
 var $2=_P.cur();
 if($2==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u203F"<=$2&&$2<="\u2040");
 }
 }
@@ -254,7 +254,7 @@ _rules.NCNameStartChar = function() {
 var $0=_P.cur();
 if($0==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("A"<=$0&&$0<="Z");
 }
 if(!_P.adv){ _P.adv=true;
@@ -264,7 +264,7 @@ if(!_P.adv){ _P.adv=true;
 var $1=_P.cur();
 if($1==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("a"<=$1&&$1<="z");
 }
 }
@@ -272,7 +272,7 @@ if(!_P.adv){ _P.adv=true;
 var $2=_P.cur();
 if($2==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u00C0"<=$2&&$2<="\u00D6");
 }
 }
@@ -280,7 +280,7 @@ if(!_P.adv){ _P.adv=true;
 var $3=_P.cur();
 if($3==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u00D8"<=$3&&$3<="\u00F6");
 }
 }
@@ -288,7 +288,7 @@ if(!_P.adv){ _P.adv=true;
 var $4=_P.cur();
 if($4==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u00F8"<=$4&&$4<="\u02FF");
 }
 }
@@ -296,7 +296,7 @@ if(!_P.adv){ _P.adv=true;
 var $5=_P.cur();
 if($5==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u0370"<=$5&&$5<="\u037D");
 }
 }
@@ -304,7 +304,7 @@ if(!_P.adv){ _P.adv=true;
 var $6=_P.cur();
 if($6==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u037F"<=$6&&$6<="\u1FFF");
 }
 }
@@ -312,7 +312,7 @@ if(!_P.adv){ _P.adv=true;
 var $7=_P.cur();
 if($7==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u200C"<=$7&&$7<="\u200D");
 }
 }
@@ -320,7 +320,7 @@ if(!_P.adv){ _P.adv=true;
 var $8=_P.cur();
 if($8==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u2070"<=$8&&$8<="\u218F");
 }
 }
@@ -328,7 +328,7 @@ if(!_P.adv){ _P.adv=true;
 var $9=_P.cur();
 if($9==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u2C00"<=$9&&$9<="\u2FEF");
 }
 }
@@ -336,7 +336,7 @@ if(!_P.adv){ _P.adv=true;
 var $a=_P.cur();
 if($a==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u3001"<=$a&&$a<="\uD7FF");
 }
 }
@@ -344,7 +344,7 @@ if(!_P.adv){ _P.adv=true;
 var $b=_P.cur();
 if($b==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\uF900"<=$b&&$b<="\uFDCF");
 }
 }
@@ -352,7 +352,7 @@ if(!_P.adv){ _P.adv=true;
 var $c=_P.cur();
 if($c==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\uFDF0"<=$c&&$c<="\uFFFD");
 }
 }
@@ -360,13 +360,13 @@ if(!_P.adv){ _P.adv=true;
 $d:{var $e=_P.pos;
 var $f=_P.cur();
 if($f==null){_P.adv=false;
-}else{
+}else {
 _P.step("\uD800"<=$f&&$f<="\uDB7F");
 }
 if(!_P.adv) break $d;
 var $g=_P.cur();
 if($g==null){_P.adv=false;
-}else{
+}else {
 _P.step("\uDC00"<=$g&&$g<="\uDFFF");
 }
 var _R=_P.doc.substring($e,_P.pos);
@@ -387,7 +387,7 @@ if(!_P.adv){ _P.adv=true;
 var $0=_P.cur();
 if($0==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("0"<=$0&&$0<="9");
 }
 }
@@ -398,7 +398,7 @@ if(!_P.adv){ _P.adv=true;
 var $1=_P.cur();
 if($1==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u0300"<=$1&&$1<="\u036F");
 }
 }
@@ -406,7 +406,7 @@ if(!_P.adv){ _P.adv=true;
 var $2=_P.cur();
 if($2==null){_P.adv=false;
 var _R=null;
-}else{
+}else {
 var _R=_P.step("\u203F"<=$2&&$2<="\u2040");
 }
 }

@@ -1,5 +1,13 @@
 # CHANGES for dominum
 
+## 0.2.0
+
+- Breaking change: Require Node 10.0.0
+- Fix: Ensure `appendChild` returns its argument
+- Linting (ESLint): Latest as per ash-nazg (jsdocs)
+- npm: Use stable mocha-badge-generator now that updated
+- npm: Update devDeps
+
 ## 0.1.3
 
 - Build: Export `setNodeListWritingPermission` and

@@ -3,7 +3,14 @@ import Attr from './Attr.js';
 import DocumentFragment from './DocumentFragment.js';
 import {setWritingPermission} from './NamedNodeMap.js';
 
+/**
+ * `HTMLElement`
+ */
 class HTMLElement extends Element {
+  /**
+   * @param {string} name
+   * @param {HTMLDocument} ownerDocument
+   */
   constructor (name, ownerDocument) {
     super(name, 'http://www.w3.org/1999/xhtml', ownerDocument);
 
@@ -23,7 +30,12 @@ class HTMLElement extends Element {
     }
   }
 
-  // Note: doesn't actually set a namespace in HTML
+  /**
+   * Note: doesn't actually set a namespace in HTML.
+   * @param {string} ns
+   * @param {string} qualifiedName
+   * @param {string} value
+   */
   setAttributeNS (ns, qualifiedName, value) {
     for (const att of this.attributes) {
       if (att.name === qualifiedName) {

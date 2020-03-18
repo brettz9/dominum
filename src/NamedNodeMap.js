@@ -9,6 +9,9 @@ import {arrayExoticObject, setWritingPermission} from
  * as items are added to the list.
  */
 class NamedNodeMap {
+  /**
+   * Sets up as exotic array object.
+   */
   constructor () {
     // eslint-disable-next-line no-constructor-return
     return arrayExoticObject(this, false);

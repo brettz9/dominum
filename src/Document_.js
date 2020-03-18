@@ -13,7 +13,14 @@ import DocumentFragment from './DocumentFragment.js';
 import ProcessingInstruction from './ProcessingInstruction.js';
 import DocumentType from './DocumentType.js';
 
+/**
+ * `Document`
+ */
 class Document extends Node {
+  /**
+   * @param {DocumentType} documentType
+   * @param {Element} documentElement
+   */
   constructor (documentType, documentElement) {
     super();
     this.nodeName = '#document'; // Not needed w3c-xmlserializer
@@ -28,23 +35,48 @@ class Document extends Node {
 
     this.documentElement = documentElement || null;
   }
+  /**
+   * @param {string} data
+   * @returns {Comment}
+   */
   createComment (data) {
     return new Comment(data);
   }
+  /**
+   * @param {string} target
+   * @param {string} data
+   * @returns {ProcessingInstruction}
+   */
   createProcessingInstruction (target, data) {
     return new ProcessingInstruction(target, data);
   }
+  /**
+   * @param {string} name
+   * @returns {Attr}
+   */
   createAttribute (name) {
     return new Attr(name);
   }
+  /**
+   * @returns {DocumentFragment}
+   */
   createDocumentFragment () {
     return new DocumentFragment();
   }
+  /**
+   * @param {string} data
+   * @returns {Text}
+   */
   createTextNode (data) {
     return new Text(data);
   }
-  // createElement's namespace differs on HTML vs. XML documents, but not
-  //  apparently with `createElementNS`
+  /**
+   * `createElement`'s namespace differs on HTML vs. XML documents, but not
+   * apparently with `createElementNS`.
+   * @param {string} namespace
+   * @param {string} elem
+   * @returns {Element}
+   */
   createElementNS (namespace, elem) {
     return new Element(elem, namespace, this);
   }

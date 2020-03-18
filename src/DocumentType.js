@@ -1,7 +1,15 @@
 import Node from './Node.js';
 import ChildNode from './mixins/ChildNode.js';
 
+/**
+ * `DocumentType`
+ */
 class DocumentType extends Node {
+  /**
+   * @param {string} name
+   * @param {string} [publicId='']
+   * @param {string} [systemId='']
+   */
   constructor (name, publicId = '', systemId = '') {
     super();
     this.name = name;

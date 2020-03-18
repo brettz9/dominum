@@ -6,7 +6,15 @@ import {default as NamedNodeMap, setWritingPermission} from './NamedNodeMap.js';
 import ParentNode from './mixins/ParentNode.js';
 import ChildNode from './mixins/ChildNode.js';
 
+/**
+ * `Element`
+ */
 class Element extends Node {
+  /**
+   * @param {string} qualifiedNameStr
+   * @param {string} ns
+   * @param {Document} ownerDocument
+   */
   constructor (qualifiedNameStr, ns, ownerDocument) {
     super();
     const [prefix, name] = qualifiedNameStr.includes(':')
@@ -28,6 +36,10 @@ class Element extends Node {
     Object.assign(this, ParentNode, ChildNode);
   }
 
+  /**
+   * @param {string} name
+   * @param {string} value
+   */
   setAttribute (name, value) {
     for (const att of this.attributes) {
       if (att.name === name) {
@@ -42,8 +54,13 @@ class Element extends Node {
     setWritingPermission(lastValue);
   }
 
-  // Note: Won't use given prefix if already existing with a different
-  //  namespace
+  /**
+   * Note: Won't use given prefix if already existing with a different
+   * namespace.
+   * @param {string} ns
+   * @param {string} qualifiedName
+   * @param {string} value
+   */
   setAttributeNS (ns, qualifiedName, value) {
     for (const att of this.attributes) {
       const [prefix, name] = qualifiedName.includes(':')

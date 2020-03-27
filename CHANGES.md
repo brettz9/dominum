@@ -1,5 +1,10 @@
 # CHANGES for dominum
 
+## ?
+
+- Linting (ESLint): As per latest ash-nazg
+- npm: Update devDeps
+
 ## 0.2.0
 
 - Breaking change: Require Node 10.0.0

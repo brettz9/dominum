@@ -7,6 +7,7 @@ module.exports = {
   settings: {
     polyfills: [
       'console',
+      'Number.parseInt',
       'Object.assign',
       'Object.defineProperties',
       'Object.getOwnPropertyDescriptor',

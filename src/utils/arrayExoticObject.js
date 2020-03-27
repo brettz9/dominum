@@ -116,9 +116,9 @@ function arrayExoticObject (target, writable) {
         // 16.
         /* istanbul ignore if */
         if (Object.keys(target).filter((key) => {
-          return isArrayIndex(key) && parseInt(key) >= newLen;
+          return isArrayIndex(key) && Number.parseInt(key) >= newLen;
         }).map((key) => {
-          return parseInt(key);
+          return Number.parseInt(key);
         }).sort((a, b) => {
           // Reverse numerical
           // `Object.keys` seems to predictably order, so first

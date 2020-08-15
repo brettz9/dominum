@@ -39,6 +39,7 @@ class Element extends Node {
   /**
    * @param {string} name
    * @param {string} value
+   * @returns {void}
    */
   setAttribute (name, value) {
     for (const att of this.attributes) {
@@ -60,6 +61,7 @@ class Element extends Node {
    * @param {string} ns
    * @param {string} qualifiedName
    * @param {string} value
+   * @returns {void}
    */
   setAttributeNS (ns, qualifiedName, value) {
     for (const att of this.attributes) {

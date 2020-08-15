@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   env: {
     browser: true,
@@ -24,6 +26,13 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['.eslintrc.js'],
+      extends: 'plugin:node/recommended-script',
+      rules: {
+        'import/no-commonjs': 0
+      }
+    },
+    {
       files: '*.md',
       globals: {
         Dominum: true
@@ -32,7 +41,10 @@ module.exports = {
         'import/unambiguous': 0,
         'import/no-commonjs': 0,
         'import/no-unresolved': ['error', {ignore: ['dominum']}],
-        'no-unused-vars': ['error', {varsIgnorePattern: 'DOMException|Node|ParentNode|ChildNode|NamedNodeMap|NodeList|Element|HTMLElement|Attr|DocumentFragment|ProcessingInstruction|CharacterData|Comment|Text|CDATASection|DocumentType|Document|HTMLDocument|XMLDocument|createHTMLDocument'}]
+        'no-unused-vars': ['error', {
+          // eslint-disable-next-line max-len
+          varsIgnorePattern: 'DOMException|Node|ParentNode|ChildNode|NamedNodeMap|NodeList|Element|HTMLElement|Attr|DocumentFragment|ProcessingInstruction|CharacterData|Comment|Text|CDATASection|DocumentType|Document|HTMLDocument|XMLDocument|createHTMLDocument'
+        }]
       }
     },
     {
@@ -59,6 +71,9 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'no-shadow': 0
+    'no-shadow': 0,
+
+    // Enable later
+    'eslint-comments/require-description': 0
   }
 };

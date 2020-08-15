@@ -35,6 +35,7 @@ class HTMLDocument extends Document {
   /* eslint-disable class-methods-use-this */
   /**
    * @throws {DOMException}
+   * @returns {void}
    */
   createCDATASection (/* data */) {
     /* eslint-enable class-methods-use-this */

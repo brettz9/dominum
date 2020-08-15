@@ -2,8 +2,10 @@
 
 ## ?
 
+- Build: Update map file
 - Linting (ESLint): As per latest ash-nazg
-- npm: Update devDeps
+- npm: Switch to non-deprecated `@rollup/plugin-commonjs`
+- npm: Update devDeps. and package-lock
 
 ## 0.2.0
 

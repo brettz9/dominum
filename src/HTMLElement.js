@@ -35,6 +35,7 @@ class HTMLElement extends Element {
    * @param {string} ns
    * @param {string} qualifiedName
    * @param {string} value
+   * @returns {void}
    */
   setAttributeNS (ns, qualifiedName, value) {
     for (const att of this.attributes) {
